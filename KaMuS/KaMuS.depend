@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1523591658 source:c:\users\asus\documents\github\kamus\kamus\circularsinglelinklist.cpp
+
+1523606241 source:c:\users\asus\documents\github\kamus\kamus\doublelinklist.cpp
+	"DoubleLinkList.h"
+
+1523591688 c:\users\asus\documents\github\kamus\kamus\doublelinklist.h
+
+1514140574 source:c:\users\asus\documents\github\kamus\kamus\main.cpp
+	<iostream>
+
