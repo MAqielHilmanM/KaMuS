@@ -1,12 +1,16 @@
 #ifndef SINGLELINKLIST_H_INCLUDED
 #define SINGLELINKLIST_H_INCLUDED
 
-using namespace std;
+#include "mainHeader.h"
+#define first(L) L.first
+#define info(P) P->info
+#define next(P) P->next
+
 
 struct parent{
     int ID;
     string kata;
-    long int tanggal;
+    long tanggal;
     int hint;
 };
 
@@ -17,20 +21,20 @@ struct elemen{
     address next;
 };
 struct linklist{
-    address firts;
+    address first;
 };
 
 
-void createList(linklist *P);
+void createList(linklist &L);
 address alokasi(string kata, int ID);
-void insertFirst(linklist *P, address data);
-void show(linklist P);
-void insertAfter(linklist *P, address data, int i);
-void insertLast(linklist *P);
-void deleteFirst(linklist *P);
+void insertFirst(linklist &L, address data);
+void show(linklist L);
+void insertAfter(linklist &L, address data, int i);
+void insertLast(linklist &L);
+void deleteFirst(linklist &L);
 void deleteAfter();
-void deleteLast(linklist *P, int i);
-address cari(linklist P, string kata);
-void update(address elemen_diubah, string kata);
+void deleteLast(linklist &L, int i);
+address cari(linklist L, string kata);
+void update(address ele9men_diubah, string kata);
 
 #endif // SINGLELINKLIST_H_INCLUDED

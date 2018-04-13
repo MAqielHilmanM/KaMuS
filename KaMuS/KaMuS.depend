@@ -6,6 +6,20 @@
 
 1523591688 c:\users\asus\documents\github\kamus\kamus\doublelinklist.h
 
-1514140574 source:c:\users\asus\documents\github\kamus\kamus\main.cpp
+1523617238 source:c:\users\asus\documents\github\kamus\kamus\main.cpp
+	"mainHeader.h"
+
+1523604314 source:c:\users\asus\documents\github\kamus\kamus\tools.cpp
+
+1523604279 source:c:\users\asus\documents\github\kamus\kamus\view.cpp
+
+1523612723 c:\users\asus\documents\github\kamus\kamus\mainheader.h
 	<iostream>
+	<string>
+
+1523614584 source:c:\users\asus\documents\github\kamus\kamus\singlelinklist.cpp
+	"SingleLinkList.h"
+
+1523612723 c:\users\asus\documents\github\kamus\kamus\singlelinklist.h
+	"mainHeader.h"
 

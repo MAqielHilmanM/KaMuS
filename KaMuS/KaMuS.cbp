@@ -32,7 +32,18 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="CircularSingleLinkList.cpp" />
+		<Unit filename="CircularSingleLinkList.h" />
+		<Unit filename="DoubleLinkList.cpp" />
+		<Unit filename="DoubleLinkList.h" />
+		<Unit filename="SingleLinkList.cpp" />
+		<Unit filename="SingleLinkList.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="mainHeader.h" />
+		<Unit filename="tools.cpp" />
+		<Unit filename="tools.h" />
+		<Unit filename="view.cpp" />
+		<Unit filename="view.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
