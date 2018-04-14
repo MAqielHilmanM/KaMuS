@@ -5,7 +5,7 @@
 #define first(L) L.first
 #define info(P) P->info
 #define next(P) P->next
-
+#define stdlib.h
 
 struct parent{
     int ID;

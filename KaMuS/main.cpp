@@ -10,6 +10,7 @@ int main()
     int pilih;
     cout<<"Masukan Pilihan : ",cin>>pilih;
     if (pilih == 1){
+        system("cls");
         cout<<"Cari Kata"<<endl;
     }else if (pilih == 2){
         cout<<"Cari Kata"<<endl;
