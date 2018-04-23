@@ -5,15 +5,18 @@ int main()
     cout<<"        APLIKASI KAMUS         "<<endl;
     cout<<"================================="<<endl;
     cout<<"Silahkan Pilih Menu Utama"<<endl;
-    cout<<"1. Bahasa Inggris"<<endl;
-    cout<<"2. Bahasa Indonesia"<<endl;
+    cout<<"1. Inggris to Indonesia"<<endl;
+    cout<<"2. Indonesia to Inggris"<<endl;
     int pilih;
     cout<<"Masukan Pilihan : ",cin>>pilih;
     if (pilih == 1){
-
-        cout<<"Cari Kata"<<endl;
+        system("cls");
+        string huruf;
+        cout<<"Masukan kata menggunakan huruf KAPITAL : ",cin>>huruf;
     }else if (pilih == 2){
-        cout<<"Cari Kata"<<endl;
+        system("cls");
+        string huruf;
+        cout<<"Masukan kata menggunakan huruf KAPITAL : ",cin>>huruf;
     }
     return 0;
 }

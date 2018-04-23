@@ -1,56 +1,51 @@
 #include "DoubleLinkList.h"
 
-
 void createList(linklist &L){
     first(L) = NULL;
     last(L) = NULL;
 }
 
-address alokasi(){
+address alokasi(string kata, int ID){
     address P;
     P = new elemen;
+    info(P).kata = kata;
+    info(P).ID = ID;
     next(P) = NULL;
     prev(P) = NULL;
-
     return P;
 }
-
-insertFirst(linklist &L, address data){
+void insertFirst(linklist &L, address P){
     if (first(L) == NULL){
-        first(L) = data;
-        last(L) = data;
+        first(L) = P;
+        last(L) = P;
     }else{
-        next(data) = first(L);
-        prev(first(L)) = data;
-        first(L) = data;
+        next(P) = first(L);
+        prev(first(L)) = P;
+        first(L) = P;
     }
 }
-
-insertLast(linklist &L, address data){
+void insertLast(linklist &L, address P){
     if (first(L) == NULL){
-        first(L) = data;
-        last(L) = data;
+        first(L) = P;
+        last(L) = P;
     }else{
-        prev(data) = last(L);
-        next(last(L)) = data;
-        last(L) = data;
+        next(P) = last(L);
+        prev(last(L)) = P;
+        last(L) = P;
     }
 }
-
-void show(linklist L){
+void insertAfter(linklist &L, address prec, address &P){
     if (first(L) == NULL){
-        cout<< "DATA KOSONG";
+        first(L) = P;
+        last(L) = P;
     }else{
-        address P;
-        P = first(L);
-        while( P != NULL){
-            cout<< "blabla";
-            P = next(P);
-        }
+        next(P) = next(prec);
+        next(prec) =  P;
+        prev(P) = prec;
+        prev(next(P)) = P;
     }
 }
-
-void deleteLast(linklist &L){
+void deleteLast(linklist &L, address P){
     if(first(L) == NULL){
         cout<< "DATA KOSONG";
     }else if(first(L) == last(L)){
@@ -63,35 +58,33 @@ void deleteLast(linklist &L){
         address P;
         P = last(L);
         last(L) = prev(P);
-        next(last(P)) = NULL;
+        next(last(L)) = NULL;
         prev(P) = NULL;
         delete P;
     }
 }
-
-void deleteFirst(linklist &L){
+void dealokasi(address P){
+    delete P;
+}
+void deleteFirst(linklist &L, address P){
     if(first(L) == NULL){
         cout << "DATA KOSONG";
-    }else{
+    }else if(next(first(L))== NULL){
         address P;
         P = first(L);
         first(L) = NULL;
         last(L) = NULL;
-        delete P;
+        dealokasi(P);
     }else {
         address P;
         P = first(L);
         first(L) = next(P);
-        (prev(first(L)) = NULL;
+        prev(first(L)) = NULL;
         next(P) = NULL;
         delete P;
     }
 }
 
-void cari(linklist L, address data);
-    if(first(L) == NULL){
-        return NULL;
-    }else{}
 
 
 

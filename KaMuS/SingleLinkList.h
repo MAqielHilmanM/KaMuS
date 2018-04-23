@@ -5,6 +5,7 @@
 #define first(L) L.first
 #define info(P) P->info
 #define next(P) P->next
+#include <stdlib.h>
 
 
 struct parent{
@@ -25,16 +26,17 @@ struct linklist{
 };
 
 
-void createList(linklist &L);
+void SLLcreateList(linklist &L);
 address alokasi(string kata, int ID);
-void insertFirst(linklist &L, address data);
-void show(linklist L);
-void insertAfter(linklist &L, address data, int i);
-void insertLast(linklist &L);
-void deleteFirst(linklist &L);
-void deleteAfter();
-void deleteLast(linklist &L, int i);
+void SLLinsertFirst(linklist &L, address P);
+void SLLinsertLast(linklist &L, address P);
+void SLLinsertAfter(linklist &L, address prec, address P);
+void SLLdeleteLast(linklist &L, address P);
+void SLLdeleteFirst(linklist &L, address P);
+void SLLdeleteAfter(linklist &L, address prec, address &P);
 address cari(linklist L, string kata);
-void update(address ele9men_diubah, string kata);
+void SLLupdate(address elemen_diubah, string kata);
+void SLLshow(linklist L);
+void SLLdealokasi(address P);
 
 #endif // SINGLELINKLIST_H_INCLUDED
