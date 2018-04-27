@@ -32,8 +32,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="CircularSingleLinkList.cpp" />
-		<Unit filename="CircularSingleLinkList.h" />
+		<Unit filename="CircularDoubleLinkList.cpp" />
+		<Unit filename="CircularDoubleLinkList.h" />
 		<Unit filename="DoubleLinkList.cpp" />
 		<Unit filename="DoubleLinkList.h" />
 		<Unit filename="SingleLinkList.cpp" />
