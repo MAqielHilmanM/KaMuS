@@ -10,7 +10,6 @@
 #define prev(P) P->prev
 #define last(L) L.last
 
-using namespace std;
 struct infotypeRelation{
     adrParent idParent;
     adrChild

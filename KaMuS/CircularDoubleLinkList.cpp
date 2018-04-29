@@ -1,41 +1,48 @@
 #include "CircularDoubleLinkList.h"
 
-void createList(List &L){
+void createList(ListChild &L){
     first(L) = NULL;
 }
 
-address alokasi(string kata){
-    address P;
-    P = new element;
+adrChild alokasi(string kata){
+    adrChild P;
+    P = new element_child;
     info(P).kata = kata;
+    info(P).tanggal = CurrentTimestamp();
+    info(P).counter = 0;
     next(P) = P;
     prev(P) = P;
     return P;
 }
 
-void insertFirst(List &L, address P){
+void insertFirst(ListChild &L, adrChild P){
     if (first(L) == NULL){
         first(L) = P;
     }else{
         next(P) = first(L);
+        next(prev(first(L))) = P;
         prev(first(L)) = P;
         first(L) = P;
     }
 }
-/*
-void insertLast(List &L, address P){
+
+void insertLast(ListChild &L, adrChild P){
     if (first(L) == NULL){
         first(L) = P;
     }else{
-        next(P) = last(L);
-        prev(last(L)) = P;
-        last(L) = P;
+        adrChild Q = first(L);
+        while(next(Q) != first(L)){
+            Q = next(Q);
+        }
+        next(P) = first(L);
+        prev(first(L)) = P;
+        prev(P) = Q;
+        next(Q) = P;
     }
 }
-void insertAfter(List &L, address prec, address &P){
+void insertAfter(ListChild &L, adrChild prec, adrChild &P){
     if (first(L) == NULL){
         first(L) = P;
-        last(L) = P;
     }else{
         next(P) = next(prec);
         next(prec) =  P;
@@ -43,25 +50,22 @@ void insertAfter(List &L, address prec, address &P){
         prev(next(P)) = P;
     }
 }
-void deleteLast(List &L, address P){
+void deleteLast(ListChild &L, adrChild P){
     if(first(L) == NULL){
         cout<< "DATA KOSONG";
-    }else if(first(L) == last(L)){
-        address P;
-        P = first(L);
-        first(L) = NULL;
-        last(L) = NULL;
-        delete P;
     }else{
-        address P;
-        P = last(L);
-        last(L) = prev(P);
-        next(last(L)) = NULL;
-        prev(P) = NULL;
-        delete P;
+        adrChild Q = first(L);
+        while(next(Q) != first(L)){
+            Q = next(Q);
+        }
+        P = Q;
+        Q = prev(Q);
+        Q = first(L);
+        prev(first(L)) = Q;
+        dealokasi(P);
     }
 }
-void dealokasi(address P){
+void dealokasi(adrChild P){
     delete P;
 }
 void deleteFirst(List &L, address P){
@@ -82,4 +86,3 @@ void deleteFirst(List &L, address P){
         delete P;
     }
 }
-*/
