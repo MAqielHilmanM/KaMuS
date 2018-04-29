@@ -72,20 +72,34 @@ void deleteFirst(ListParent &L, adrParent P){
     }
 }
 
-void SLLdeleteAfter(linklist &L, address prec, address &P){
+void deleteAfter(ListParent &L, adrParent prec, adrParent &P){
     if (first(L) != NULL && prec != NULL){
         address P;
         P = next(first(L));
         next(first(L)) = next(P);
         next(P) = NULL;
-
+    }
+}
+void deleteLast(ListParent &L, adrParent P){
+    if ( first(L) == NULL){
+        cout<<"DATA TIDAK ADA";
+    }else{
+        adrParent Q;
+        while (next(next(Q)) != NULL){
+            Q = next(Q);
+        P = next(Q);
+        next(Q) = NULL;
+        }
+    }else if (next(first(L)) == NULL){
+        adrParent Q;
+        Q = deleteFirst(L,P);
     }
 }
 
 
-void SLLshow(linklist L){
+void show(ListParent &L){
     if(first(L) != NULL){
-        address P;
+        adrParent P;
         P = first(L);
         while ( P  != NULL){
             cout<<"Kata : "<<info(P).kata<<endl;
@@ -93,14 +107,14 @@ void SLLshow(linklist L){
         }
     }
 }
-address SLLcari(linklist L, string kata){
+address cari(ListParent L, string kata){
     if (first(L) != NULL){
         address P;
         P = first(L);
         while ((P != NULL) && (info(P).kata != kata)){
             P = next(P);
         }
-        if (P != NULL){
+        if (info(P).kata == kata){
             return P;
         } else {
             return NULL;
@@ -110,10 +124,10 @@ address SLLcari(linklist L, string kata){
 
     }
 }
-void SLLupdate(address elemen_diubah, string kata){
+void update(adrParent elemen_diubah, string kata){
     info(elemen_diubah).kata = kata;
 }
 
-void SLLdealokasi(address P){
+void dealokasi(adrParent P){
     delete P;
 }

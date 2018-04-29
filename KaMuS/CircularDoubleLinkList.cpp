@@ -1,11 +1,11 @@
 #include "CircularDoubleLinkList.h"
 
-void createList(List &L){
+void createList(ListChild &L){
     first(L) = NULL;
 }
 
 address alokasi(string kata){
-    address P;
+    adrChild P;
     P = new element;
     info(P).kata = kata;
     next(P) = P;

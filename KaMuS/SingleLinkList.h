@@ -35,7 +35,8 @@ void deleteFirst(ListParent &L, adrParent P);
 void deleteAfter(ListParent &L, adrParent prec, adrParent &P);
 adrParent cari(ListParent L, string kata);
 void update(adrParent elemen_diubah, string kata);
-void show(ListParent L);
+void show(ListParent &L);
 void dealokasi(adrParent P);
+void cari(ListParent L, string kata)
 
 #endif // SINGLELINKLIST_H_INCLUDED
