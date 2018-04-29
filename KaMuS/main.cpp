@@ -16,6 +16,12 @@ int main()
     if (pilih == 1){
         string huruf;
         cout<<"Masukan kata menggunakan huruf KAPITAL : ",cin>>huruf;
+        string data;
+        if (huruf == data){
+            cout<<"Tampilkan disini";
+        }else{
+            system("cls");
+            }
     }else if (pilih == 2){
         string huruf;
         cout<<"Masukan kata menggunakan huruf KAPITAL : ",cin>>huruf;
