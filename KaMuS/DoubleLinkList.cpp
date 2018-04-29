@@ -5,11 +5,11 @@ void createList(ListRelation &L){
     last(L) = NULL;
 }
 
-adrRelation alokasi(adrParent kata, adrChild child){
+adrRelation alokasi(adrParent parent, adrChild child){
     adrRelation P;
     P = new elementRelation;
-    info(P).kata =kata;
-    info(P).ID = ID;
+    info(P).parent = parent;
+    info(P).child = child;
     next(P) = NULL;
     prev(P) = NULL;
     return P;
@@ -33,7 +33,7 @@ void insertLast(ListRelation &L, adrRelation P){
         insertFirst(L,P);
     }
 }
-void insertAfter(ListRelation &L, adrRelation prec, adrRelation &P){
+void insertAfter(ListRelation &L, adrRelation prec, adrRelation P){
     if ((first(L) != NULL) && (prec != NULL)){
         if (next(prec) != NULL){
             prev(P) = prec;
@@ -48,7 +48,7 @@ void insertAfter(ListRelation &L, adrRelation prec, adrRelation &P){
         insertFirst(L,P);
     }
 }
-void deleteLast(ListRelation &L, adrRelation P){
+void deleteLast(ListRelation &L, adrRelation &P){
     if (first(L) !=  NULL){
         P = last(L);
         if (last(L) != first(L){
@@ -62,10 +62,8 @@ void deleteLast(ListRelation &L, adrRelation P){
         cout<<"DATA TIDAK DITEMUKAN";
     }
 }
-void dealokasi(adrRelation P){
-    delete P;
-}
-void deleteFirst(ListRelation &L, adrRelation P){
+
+void deleteFirst(ListRelation &L, adrRelation &P){
   if (first(L) != NULL){
     P = first(L) ;
     if (first(L) != last(L)){
@@ -79,7 +77,7 @@ void deleteFirst(ListRelation &L, adrRelation P){
     cout<<"DATA TIDAK DITEMUKAN ";
  }
 }
-void deleteAfter(ListRelation &L, adrRelation &P){
+void deleteAfter(ListRelation &L, adrRelation prec, adrRelation &P){
     if (first(L) != NULL) && (prec !=  NULL){
         if (prec != last(L)){
             P = next(prec);
@@ -95,13 +93,13 @@ void deleteAfter(ListRelation &L, adrRelation &P){
     }
 }
 
-address cari(ListRelation L, string kata){
+adrRelation cariParent(ListRelation L, adrChild child){
     if (first(L) != NULL){
         adrRelation P;
-        while(next(P) != NULL) && (info(P) != info(kata)){
+        while(next(P) != NULL) && (info(P) != info(child)){
             P = next(P);
         }
-        if (info(P) = info(kata)){
+        if (info(P) = info(child)){
             return P;
         }else{
             return NULL;
@@ -109,6 +107,26 @@ address cari(ListRelation L, string kata){
     }else{
         cout <<"DATA TIDAK ADA";
     }
+}
+
+
+adrRelation cariChild(ListRelation L, adrParent parent){
+    if (first(L) != NULL){
+        adrRelation P;
+        while(next(P) != NULL) && (info(P) != info(parent)){
+            P = next(P);
+        }
+        if (info(P) = info(parent)){
+            return P;
+        }else{
+            return NULL;
+        }
+    }else{
+        cout <<"DATA TIDAK ADA";
+    }
+}
+void update(adrRelation elemen_diubah, string kata){
+    info(elemen_diubah).kata = kata;
 }
 void show(ListRelation L){
     if (first(L) != NULL){
@@ -120,7 +138,9 @@ void show(ListRelation L){
     }
 }
 
-
+void dealokasi(adrRelation P){
+    delete P;
+}
 
 
 

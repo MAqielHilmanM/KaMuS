@@ -60,6 +60,22 @@ void insertAfter(ListParent &L, adrParent prec, adrParent P){
     }
 }
 
+void deleteLast(ListParent &L, adrParent P){
+    if (first(L) == NULL){
+        cout<<"DATA TIDAK DITEMUKAN";
+    }else if (next(first(L)) == NULL){
+         P = first(L);
+         first(L) = NULL;
+    }else{
+        adrParent Q;
+        P = first(L);
+        while (next(next(P)) != NULL){
+            P = next(P);
+        Q = next(P);
+        next(P) = NULL;
+        }
+    }
+}
 void deleteFirst(ListParent &L, adrParent P){
     if (first(L) == NULL){
         cout<<"MOHON MAAF DATA KOSONG";
@@ -80,20 +96,11 @@ void deleteAfter(ListParent &L, adrParent prec, adrParent &P){
         next(first(L)) = next(P);
         next(P) = NULL;
 
+    }else{
+        cout<<"DATA TIDAK DITEMUKAN ";
     }
 }
 
-
-void show(ListParent L){
-    if(first(L) != NULL){
-        adrParent P;
-        P = first(L);
-        while ( P  != NULL){
-            cout<<"Kata : "<<info(P).kata<<endl;
-            P = next(P);
-        }
-    }
-}
 adrParent cari(ListParent L, string kata){
     if (first(L) != NULL){
         adrParent P;
@@ -101,7 +108,7 @@ adrParent cari(ListParent L, string kata){
         while ((P != NULL) && (info(P).kata != kata)){
             P = next(P);
         }
-        if (P != NULL){
+        if (info(P).kata == kata){
             return P;
         } else {
             return NULL;
@@ -112,8 +119,35 @@ adrParent cari(ListParent L, string kata){
     }
 }
 
+adrParent cariTanggal(ListParent L, long tanggal){
+    if (first(L) != NULL){
+        adrParent P;
+        P = first(L);
+        while ((P != NULL) && (info(P).tanggal != tanggal)){
+            P = next(P);
+        }
+        if (info(P).tanggal == tanggal){
+            return P;
+        } else {
+            return NULL;
+    }
+    }else {
+        return NULL;
+
+    }
+}
 void update(adrParent elemen_diubah, string kata){
     info(elemen_diubah).kata = kata;
+}
+void show(ListParent L){
+    if(first(L) != NULL){
+        adrParent P;
+        P = first(L);
+        while ( P  != NULL){
+            cout<<"Kata : "<<info(P).kata<<endl;
+            P = next(P);
+        }
+    }
 }
 
 void dealokasi(adrParent P){

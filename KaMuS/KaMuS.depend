@@ -7,7 +7,7 @@
 1524403895 c:\users\asus\documents\github\kamus\kamus\doublelinklist.h
 	"mainHeader.h"
 
-1524905521 source:c:\users\asus\documents\github\kamus\kamus\main.cpp
+1525029929 source:c:\users\asus\documents\github\kamus\kamus\main.cpp
 	"mainHeader.h"
 
 1524905521 source:c:\users\asus\documents\github\kamus\kamus\tools.cpp
@@ -25,10 +25,10 @@
 	<ratio>
 	"tools.h"
 
-1525022845 source:c:\users\asus\documents\github\kamus\kamus\singlelinklist.cpp
+1525029516 source:c:\users\asus\documents\github\kamus\kamus\singlelinklist.cpp
 	"SingleLinkList.h"
 
-1525015275 c:\users\asus\documents\github\kamus\kamus\singlelinklist.h
+1525029516 c:\users\asus\documents\github\kamus\kamus\singlelinklist.h
 	"mainHeader.h"
 
 1524708393 source:/home/maqielhm/Documents/TelkomUniversity/Semester2/STD/Tubes/KaMuS/KaMuS/DoubleLinkList.cpp
@@ -75,5 +75,11 @@
 	"mainHeader.h"
 
 1525027895 c:\users\asus\documents\github\kamus\kamus\view.h
+	"mainHeader.h"
+
+1525029929 source:c:\users\asus\documents\github\kamus\kamus\circulardoublelinklist.cpp
+	"CircularDoubleLinkList.h"
+
+1525029929 c:\users\asus\documents\github\kamus\kamus\circulardoublelinklist.h
 	"mainHeader.h"
 
