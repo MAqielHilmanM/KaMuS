@@ -7,6 +7,7 @@ void createList(ListChild &L){
 adrChild alokasi(string kata){
     adrChild P;
     P = new element_child;
+    P = new elementaChild;
     info(P).kata = kata;
     info(P).tanggal = CurrentTimestamp();
     info(P).counter = 0;

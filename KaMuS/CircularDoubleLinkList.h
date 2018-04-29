@@ -21,6 +21,7 @@ struct infotypeChild{
 };
 
 typedef struct elementChild *adrChild;
+typedef struct elementaChild *adrChild;
 
 struct elementaChild{
     infotypeChild info;
