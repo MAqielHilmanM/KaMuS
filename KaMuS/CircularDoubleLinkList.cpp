@@ -6,9 +6,12 @@ void createList(ListChild &L){
 
 adrChild alokasi(string kata){
     adrChild P;
+<<<<<<< HEAD
     P = new element_child;
     P = new elementaChild;
+=======
     P = new elementChild;
+>>>>>>> d039eb95e738bcd7b5e3beb75cf8681a1cb54216
     info(P).kata = kata;
     info(P).tanggal = CurrentTimestamp();
     info(P).counter = 0;
@@ -70,6 +73,7 @@ void deleteLast(ListChild &L, adrChild P){
 void dealokasi(adrChild P){
     delete P;
 }
+
 /*
 void deleteFirst(ListChild &L, adrChild P){
     if(first(L) == NULL){
