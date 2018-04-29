@@ -68,17 +68,17 @@ void deleteLast(ListChild &L, adrChild P){
 void dealokasi(adrChild P){
     delete P;
 }
-void deleteFirst(List &L, address P){
+void deleteFirst(ListChild &L, adrChild P){
     if(first(L) == NULL){
         cout << "DATA KOSONG";
     }else if(next(first(L))== NULL){
-        address P;
+        adrChild P;
         P = first(L);
         first(L) = NULL;
         last(L) = NULL;
         dealokasi(P);
     }else {
-        address P;
+        adrChild P;
         P = first(L);
         first(L) = next(P);
         prev(first(L)) = NULL;

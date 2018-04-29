@@ -12,8 +12,8 @@
 
 struct infotypeRelation{
     adrParent idParent;
-    adrChild
-    int count;
+    adrChild;
+    int i;
 };
 
 typedef struct elementRelation *adrRelation;
@@ -35,8 +35,8 @@ void insertLast(ListRelation &L, adrRelation P);
 void insertAfter(ListRelation &L, adrRelation prec, adrRelation P);
 void deleteLast(ListRelation &L, adrRelation P);
 void deleteFirst(ListRelation &L, adrRelation P);
-void deleteAfter(ListRelation &L, adrRelation, adrRelation &P);
-address cari(ListRelation L, string kata);
+void deleteAfter(ListRelation &L, adrRelation prec, adrRelation &P);
+adrRelation cari(ListRelation L, string kata);
 void update(adrRelation elemen_diubah, string kata);
 void show(ListRelation L);
 void dealokasi(adrRelation P);

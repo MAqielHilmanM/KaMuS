@@ -7,7 +7,7 @@ void createList(ListParent &L){
 
 adrParent alokasi(string kata){
     adrParent P;
-    P = new elemen;
+    P = new elementParent;
     info(P).kata = kata;
     info(P).tanggal = CurrentTimestamp();
     info(P).counter = 0;
@@ -72,10 +72,10 @@ void deleteFirst(ListParent &L, adrParent P){
     }
 }
 
-void SLLdeleteAfter(linklist &L, address prec, address &P){
+void deleteAfter(ListParent &L, adrParent prec, adrParent &P){
     if (first(L) != NULL && prec != NULL){
-        address P;
-        P = next(first(L));
+        adrParent Q;
+        Q = next(first(L));
         next(first(L)) = next(P);
         next(P) = NULL;
 
@@ -83,9 +83,9 @@ void SLLdeleteAfter(linklist &L, address prec, address &P){
 }
 
 
-void SLLshow(linklist L){
+void show(ListParent L){
     if(first(L) != NULL){
-        address P;
+        adrParent P;
         P = first(L);
         while ( P  != NULL){
             cout<<"Kata : "<<info(P).kata<<endl;
@@ -93,9 +93,9 @@ void SLLshow(linklist L){
         }
     }
 }
-address SLLcari(linklist L, string kata){
+adrParent cari(ListParent L, string kata){
     if (first(L) != NULL){
-        address P;
+        adrParent P;
         P = first(L);
         while ((P != NULL) && (info(P).kata != kata)){
             P = next(P);
@@ -110,10 +110,10 @@ address SLLcari(linklist L, string kata){
 
     }
 }
-void SLLupdate(address elemen_diubah, string kata){
+void update(adrParent elemen_diubah, string kata){
     info(elemen_diubah).kata = kata;
 }
 
-void SLLdealokasi(address P){
+void dealokasi(adrParent P){
     delete P;
 }
