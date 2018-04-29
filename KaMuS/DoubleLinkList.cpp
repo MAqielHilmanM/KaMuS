@@ -1,16 +1,20 @@
 #include "DoubleLinkList.h"
 
+void createList(ListRelation &L){
     first(L) = NULL;
     last(L) = NULL;
 }
 
+adrRelation alokasi(adrParent kata, adrChild child){
     address P;
     P = new elemen;
+    info(P).kata =kata;
     info(P).ID = ID;
     next(P) = NULL;
     prev(P) = NULL;
     return P;
 }
+void insertFirst(ListRelation &L, adrRelation P){
     if (first(L) == NULL){
         first(L) = P;
         last(L) = P;
@@ -20,6 +24,7 @@
         first(L) = P;
     }
 }
+void insertLast(ListRelation &L, adrRelation P){
     if (first(L) == NULL){
         first(L) = P;
         last(L) = P;
@@ -29,6 +34,7 @@
         last(L) = P;
     }
 }
+void insertAfter(LinkRelation &L, adrRelation prec, adrRelation &P){
     if (first(L) == NULL){
         first(L) = P;
         last(L) = P;
@@ -39,6 +45,7 @@
         prev(next(P)) = P;
     }
 }
+void deleteLast(ListRelation &L, adrRelation P){
     if(first(L) == NULL){
         cout<< "DATA KOSONG";
     }else if(first(L) == last(L)){
@@ -56,8 +63,10 @@
         delete P;
     }
 }
+void dealokasi(adrRelation P){
     delete P;
 }
+void deleteFirst(ListRelation &L, adrRelation P){
     if(first(L) == NULL){
         cout << "DATA KOSONG";
     }else if(next(first(L))== NULL){
