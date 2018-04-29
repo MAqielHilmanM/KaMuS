@@ -1,20 +1,16 @@
 #include "DoubleLinkList.h"
 
-void createList(linklist &L){
     first(L) = NULL;
     last(L) = NULL;
 }
 
-address alokasi(string kata, int ID){
     address P;
     P = new elemen;
-    info(P).kata = kata;
     info(P).ID = ID;
     next(P) = NULL;
     prev(P) = NULL;
     return P;
 }
-void insertFirst(linklist &L, address P){
     if (first(L) == NULL){
         first(L) = P;
         last(L) = P;
@@ -24,7 +20,6 @@ void insertFirst(linklist &L, address P){
         first(L) = P;
     }
 }
-void insertLast(linklist &L, address P){
     if (first(L) == NULL){
         first(L) = P;
         last(L) = P;
@@ -34,7 +29,6 @@ void insertLast(linklist &L, address P){
         last(L) = P;
     }
 }
-void insertAfter(linklist &L, address prec, address &P){
     if (first(L) == NULL){
         first(L) = P;
         last(L) = P;
@@ -45,7 +39,6 @@ void insertAfter(linklist &L, address prec, address &P){
         prev(next(P)) = P;
     }
 }
-void deleteLast(linklist &L, address P){
     if(first(L) == NULL){
         cout<< "DATA KOSONG";
     }else if(first(L) == last(L)){
@@ -63,10 +56,8 @@ void deleteLast(linklist &L, address P){
         delete P;
     }
 }
-void dealokasi(address P){
     delete P;
 }
-void deleteFirst(linklist &L, address P){
     if(first(L) == NULL){
         cout << "DATA KOSONG";
     }else if(next(first(L))== NULL){
