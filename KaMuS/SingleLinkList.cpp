@@ -78,7 +78,21 @@ void deleteAfter(ListParent &L, adrParent prec, adrParent &P){
         P = next(first(L));
         next(first(L)) = next(P);
         next(P) = NULL;
-
+    }
+}
+void deleteLast(ListParent &L, adrParent P){
+    if ( first(L) == NULL){
+        cout<<"DATA TIDAK ADA";
+    }else{
+        adrParent Q;
+        while (next(next(Q)) != NULL){
+            Q = next(Q);
+        P = next(Q);
+        next(Q) = NULL;
+        }
+    }else if (next(first(L)) == NULL){
+        adrParent Q;
+        Q = deleteFirst(L,P);
     }
 }
 
@@ -100,7 +114,7 @@ address cari(ListParent L, string kata){
         while ((P != NULL) && (info(P).kata != kata)){
             P = next(P);
         }
-        if (P != NULL){
+        if (info(P).kata == kata){
             return P;
         } else {
             return NULL;
