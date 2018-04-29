@@ -13,6 +13,8 @@
 1524905521 source:c:\users\asus\documents\github\kamus\kamus\tools.cpp
 	"tools.h"
 
+1525028257 source:c:\users\asus\documents\github\kamus\kamus\view.cpp
+	"view.h"
 
 1524905521 c:\users\asus\documents\github\kamus\kamus\mainheader.h
 	<iostream>
@@ -72,4 +74,6 @@
 1524905521 c:\users\asus\documents\github\kamus\kamus\tools.h
 	"mainHeader.h"
 
+1525027895 c:\users\asus\documents\github\kamus\kamus\view.h
+	"mainHeader.h"
 

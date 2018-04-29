@@ -23,5 +23,6 @@ void mainView(){
 }
 
 void InputView(int menu){
+    string huruf;
     cout<<"Masukan kata menggunakan huruf KAPITAL : ",cin>>huruf;
 }

@@ -20,7 +20,6 @@ struct infotypeChild{
     int counter;
 };
 
-typedef struct elementChild *adrChild;
 typedef struct elementaChild *adrChild;
 
 struct elementaChild{
