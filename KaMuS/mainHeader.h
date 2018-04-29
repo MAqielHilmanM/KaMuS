@@ -7,9 +7,10 @@
 #include <chrono>
 #include <ctime>
 #include <ratio>
-
-#include "tools.h"
+#include <time.h>
 
 using namespace std;
+#include "tools.h"
+
 
 #endif // MAINHEADER_H_INCLUDED

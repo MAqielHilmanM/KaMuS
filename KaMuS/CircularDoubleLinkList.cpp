@@ -15,6 +15,10 @@ adrChild alokasi(string kata){
     return P;
 }
 
+void dealokasi(adrChild P){
+    delete P;
+}
+
 void insertFirst(ListChild &L, adrChild P){
     if (first(L) == NULL){
         first(L) = P;
@@ -23,6 +27,17 @@ void insertFirst(ListChild &L, adrChild P){
         next(prev(first(L))) = P;
         prev(first(L)) = P;
         first(L) = P;
+    }
+}
+
+void insertAfter(ListChild &L, adrChild prec, adrChild &P){
+    if (first(L) == NULL){
+        first(L) = P;
+    }else{
+        next(P) = next(prec);
+        next(prec) =  P;
+        prev(P) = prec;
+        prev(next(P)) = P;
     }
 }
 
@@ -40,51 +55,87 @@ void insertLast(ListChild &L, adrChild P){
         next(Q) = P;
     }
 }
-void insertAfter(ListChild &L, adrChild prec, adrChild &P){
-    if (first(L) == NULL){
-        first(L) = P;
-    }else{
-        next(P) = next(prec);
-        next(prec) =  P;
-        prev(P) = prec;
-        prev(next(P)) = P;
+
+
+void deleteFirst(ListChild &L, adrChild &P){
+    if(first(L) == NULL){
+        cout << "DATA KOSONG";
+    }else {
+        P = first(L);
+        first(L) = next(P);
+        prev(next(P)) = prev(P);
+        next(prev(P)) = next(P);
+        next(P) = NULL;
+        prev(P) = NULL;
     }
 }
-void deleteLast(ListChild &L, adrChild P){
+
+void deleteAfter(ListChild &L, adrChild prec, adrChild &P){
+    if(first(L) == NULL){
+        cout << "DATA KOSONG";
+    }else{
+        next(prec) = P;
+
+        next(prec) = next(P);
+        prev(next(P)) = prec;
+
+        prev(P) = NULL;
+        next(P) = NULL;
+    }
+}
+
+void deleteLast(ListChild &L, adrChild &P){
     if(first(L) == NULL){
         cout<< "DATA KOSONG";
     }else{
-        adrChild Q = first(L);
-        while(next(Q) != first(L)){
-            Q = next(Q);
-        }
-        P = Q;
-        Q = prev(Q);
-        Q = first(L);
-        prev(first(L)) = Q;
+        P = prev(first(L));
+        next(prev(P)) = first(L);
+        prev(first(L)) = prev(P);
+        next(P) = NULL;
+        prev(P) = NULL;
         dealokasi(P);
     }
-}
-void dealokasi(adrChild P){
-    delete P;
 }
 
-/*
-void deleteFirst(ListChild &L, adrChild P){
-    if(first(L) == NULL){
-        cout << "DATA KOSONG";
-    }else if(next(first(L))== NULL){
-        adrChild P;
-        P = first(L);
-        first(L) = NULL;
-        dealokasi(P);
-    }else {
-        adrChild P;
-        P = first(L);
-        first(L) = next(P);
-        prev(first(L)) = NULL;
-        next(P) = NULL;
-        delete P;
+
+adrChild cariKata(ListChild L, string kata){
+    if(L != NULL){
+        adrChild child = first(L);
+        do{
+            child = next(child);
+        }while(child != first(L) && info(child).kata == kata);
+
+        if(info(child).kata == kata){
+             return child;
+        }else{
+             cout << "Data Not Found";
+        }
     }
 }
-*/
+
+void update(adrChild &elemen_diubah, string kata){
+    if(adrChild != NULL){
+        info(elemen_diubah).kata = kata;
+    }
+}
+void update(adrChild &elemen_diubah, int counter){
+    if(adrChild != NULL){
+        info(elemen_diubah).counter = counter;
+    }
+}
+void update(adrChild &elemen_diubah, long tanggal){
+    if(adrChild != NULL){
+        info(elemen_diubah).tanggal = tanggal;
+    }
+}
+
+void show(ListChild L){
+    if(L != NULL){
+        adrChild P = first(L);
+        do{
+            cout << "Kata : "<<info(P).kata<<endl;
+            cout << "tanggal : "<<info(P).kata<<endl;
+            cout << "Kata : "<<info(P).kata<<endl;
+        }
+    }
+}

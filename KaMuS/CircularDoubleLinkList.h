@@ -43,12 +43,15 @@ void insertFirst(ListChild &L, adrChild P);
 void insertAfter(ListChild &L, adrChild prec, adrChild P);
 void insertLast(ListChild &L, adrChild P);
 
-void deleteFirst(ListChild &L, adrChild P);
+void deleteFirst(ListChild &L, adrChild &P);
 void deleteAfter(ListChild &L, adrChild prec, adrChild &P);
-void deleteLast(ListChild &L, adrChild P);
+void deleteLast(ListChild &L, adrChild &P);
 
-adrChild cari(ListChild L, string kata);
-void update(adrChild elemen_diubah, string kata);
+adrChild cariKata(ListChild L, string kata);
+adrChild cariTanggal(ListChild L, long tanggal);
+void update(adrChild &elemen_diubah, string kata);
+void update(adrChild &elemen_diubah, int counter);
+void update(adrChild &elemen_diubah, long tanggal);
 void show(ListChild L);
 
 
