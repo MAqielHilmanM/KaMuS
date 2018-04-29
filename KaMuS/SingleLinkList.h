@@ -5,38 +5,38 @@
 #define first(L) L.first
 #define info(P) P->info
 #define next(P) P->next
-#include <stdlib.h>
 
 
-struct parent{
-    int ID;
+struct infotypeParent{
     string kata;
     long tanggal;
-    int hint;
+    int counter;
 };
 
-typedef struct elemen *address;
+typedef struct elementParent *adrParent;
 
-struct elemen{
-    parent info;
-    address next;
-};
-struct linklist{
-    address first;
+struct elementParent{
+    infotypeParent info;
+    adrParent next;
 };
 
+struct ListParent{
+    adrParent first;
+};
 
-void SLLcreateList(linklist &L);
-address alokasi(string kata, int ID);
-void SLLinsertFirst(linklist &L, address P);
-void SLLinsertLast(linklist &L, address P);
-void SLLinsertAfter(linklist &L, address prec, address P);
-void SLLdeleteLast(linklist &L, address P);
-void SLLdeleteFirst(linklist &L, address P);
-void SLLdeleteAfter(linklist &L, address prec, address &P);
-address cari(linklist L, string kata);
-void SLLupdate(address elemen_diubah, string kata);
-void SLLshow(linklist L);
-void SLLdealokasi(address P);
+
+void createList(ListParent &L);
+adrParent alokasi(string kata);
+void insertFirst(ListParent &L, adrParent P);
+void insertLast(ListParent &L, adrParent P);
+void insertAfter(ListParent &L, adrParent prec, adrParent P);
+void deleteLast(ListParent &L, adrParent P);
+void deleteFirst(ListParent &L, adrParent P);
+void deleteAfter(ListParent &L, adrParent prec, adrParent &P);
+adrParent cari(ListParent L, string kata);
+void update(adrParent elemen_diubah, string kata);
+void show(ListParent &L);
+void dealokasi(adrParent P);
+void cari(ListParent L, string kata)
 
 #endif // SINGLELINKLIST_H_INCLUDED

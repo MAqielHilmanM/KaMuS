@@ -4,7 +4,7 @@
 1524403833 source:c:\users\asus\documents\github\kamus\kamus\doublelinklist.cpp
 	"DoubleLinkList.h"
 
-1524403895 c:\users\asus\documents\github\kamus\kamus\doublelinklist.h
+1524920343 c:\users\asus\documents\github\kamus\kamus\doublelinklist.h
 	"mainHeader.h"
 
 1524403833 source:c:\users\asus\documents\github\kamus\kamus\main.cpp
@@ -14,10 +14,14 @@
 
 1523604279 source:c:\users\asus\documents\github\kamus\kamus\view.cpp
 
-1524406569 c:\users\asus\documents\github\kamus\kamus\mainheader.h
+1524905521 c:\users\asus\documents\github\kamus\kamus\mainheader.h
 	<iostream>
 	<string>
 	<stdlib.h>
+	<chrono>
+	<ctime>
+	<ratio>
+	"tools.h"
 
 1524403833 source:c:\users\asus\documents\github\kamus\kamus\singlelinklist.cpp
 	"SingleLinkList.h"
@@ -25,4 +29,45 @@
 1524403949 c:\users\asus\documents\github\kamus\kamus\singlelinklist.h
 	"mainHeader.h"
 	<stdlib.h>
+
+1524708393 source:/home/maqielhm/Documents/TelkomUniversity/Semester2/STD/Tubes/KaMuS/KaMuS/DoubleLinkList.cpp
+	"DoubleLinkList.h"
+
+1524708393 /home/maqielhm/Documents/TelkomUniversity/Semester2/STD/Tubes/KaMuS/KaMuS/DoubleLinkList.h
+	"mainHeader.h"
+
+1524711847 /home/maqielhm/Documents/TelkomUniversity/Semester2/STD/Tubes/KaMuS/KaMuS/mainHeader.h
+	<iostream>
+	<string>
+	<stdlib.h>
+	<chrono>
+	<ctime>
+	<ratio>
+	"tools.h"
+
+1524712756 /home/maqielhm/Documents/TelkomUniversity/Semester2/STD/Tubes/KaMuS/KaMuS/tools.h
+	"mainHeader.h"
+
+1524708393 source:/home/maqielhm/Documents/TelkomUniversity/Semester2/STD/Tubes/KaMuS/KaMuS/SingleLinkList.cpp
+	"SingleLinkList.h"
+
+1524710402 /home/maqielhm/Documents/TelkomUniversity/Semester2/STD/Tubes/KaMuS/KaMuS/SingleLinkList.h
+	"mainHeader.h"
+
+1524708393 source:/home/maqielhm/Documents/TelkomUniversity/Semester2/STD/Tubes/KaMuS/KaMuS/view.cpp
+
+1524712851 source:/home/maqielhm/Documents/TelkomUniversity/Semester2/STD/Tubes/KaMuS/KaMuS/main.cpp
+	"mainHeader.h"
+
+1524713075 source:/home/maqielhm/Documents/TelkomUniversity/Semester2/STD/Tubes/KaMuS/KaMuS/tools.cpp
+	"tools.h"
+
+1524711120 source:/home/maqielhm/Documents/TelkomUniversity/Semester2/STD/Tubes/KaMuS/KaMuS/CircularDoubleLinkList.cpp
+	"CircularDoubleLinkList.h"
+
+1524711157 /home/maqielhm/Documents/TelkomUniversity/Semester2/STD/Tubes/KaMuS/KaMuS/CircularDoubleLinkList.h
+	"mainHeader.h"
+
+1524905521 c:\users\asus\documents\github\kamus\kamus\tools.h
+	"mainHeader.h"
 

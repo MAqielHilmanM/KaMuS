@@ -1,19 +1,20 @@
 #include "SingleLinkList.h"
 
 
-void SLLcreateList(linklist &L){
+void createList(ListParent &L){
     first(L) = NULL;
 }
 
-address SLLalokasi(string kata, int ID){
-    address P;
+adrParent alokasi(string kata){
+    adrParent P;
     P = new elemen;
     info(P).kata = kata;
-    info(P).ID = ID;
+    info(P).tanggal = CurrentTimestamp();
+    info(P).counter = 0;
     next(P) = NULL;
     return P;
 }
-void SLLinsertFirst(linklist L, address P){
+void insertFirst(ListParent &L, adrParent P){
     if (first(L) == NULL){
          first(L) = P;
     }else{
@@ -22,18 +23,18 @@ void SLLinsertFirst(linklist L, address P){
     }
 }
 
-void SLLinsertLast(linklist L, address P){
+void insertLast(ListParent &L, adrParent P){
     if (first(L) == NULL){
         first(L) = P;
     }else{
-        address Q;
+        adrParent Q;
         while (next(Q) != NULL){
             Q = next(Q);
         next(Q) = P;
         }
     }
 }
-void SLLinsertAfter(linklist &L, address prec, address P){
+void insertAfter(ListParent &L, adrParent prec, adrParent P){
     if (first(L) == NULL){
         if (first(L) == NULL){
              first(L) = P;
@@ -46,10 +47,10 @@ void SLLinsertAfter(linklist &L, address prec, address P){
             if (first(L) == NULL){
             first(L) = P;
         }else{
-            address Q;
+            adrParent Q;
             while (next(Q) != NULL){
                 Q = next(Q);
-            next(Q) = P;
+                next(Q) = P;
             }
         }
     }else{
@@ -58,7 +59,7 @@ void SLLinsertAfter(linklist &L, address prec, address P){
     }
 }
 
-void SSLdeleteFirst(linklist &L, address P){
+void deleteFirst(ListParent &L, adrParent P){
     if (first(L) == NULL){
         cout<<"MOHON MAAF DATA KOSONG";
     }else if ( next(first(L)) == NULL ){
@@ -71,7 +72,7 @@ void SSLdeleteFirst(linklist &L, address P){
     }
 }
 
-void SLLdeleteAfter(linklist &L, address prec, address &P){
+void deleteAfter(ListParent &L, adrParent prec, adrParent &P){
     if (first(L) != NULL && prec != NULL){
         address P;
         P = next(first(L));
@@ -82,9 +83,9 @@ void SLLdeleteAfter(linklist &L, address prec, address &P){
 }
 
 
-void SLLshow(linklist L){
+void show(ListParent &L){
     if(first(L) != NULL){
-        address P;
+        adrParent P;
         P = first(L);
         while ( P  != NULL){
             cout<<"Kata : "<<info(P).kata<<endl;
@@ -92,7 +93,7 @@ void SLLshow(linklist L){
         }
     }
 }
-address SLLcari(linklist L, string kata){
+address cari(ListParent L, string kata){
     if (first(L) != NULL){
         address P;
         P = first(L);
@@ -109,10 +110,10 @@ address SLLcari(linklist L, string kata){
 
     }
 }
-void SLLupdate(address elemen_diubah, string kata){
+void update(adrParent elemen_diubah, string kata){
     info(elemen_diubah).kata = kata;
 }
 
-void SLLdealokasi(address P){
+void dealokasi(adrParent P){
     delete P;
 }

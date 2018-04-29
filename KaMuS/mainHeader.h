@@ -4,6 +4,11 @@
 #include <iostream>
 #include <string>
 #include <stdlib.h>
+#include <chrono>
+#include <ctime>
+#include <ratio>
+
+#include "tools.h"
 
 using namespace std;
 

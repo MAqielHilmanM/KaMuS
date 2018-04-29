@@ -16,7 +16,7 @@ struct parent{
     int hint;
 };
 
-typedef struct elemen *address;
+typedef struct elemen *adrRelation;
 
 struct elemen{
     parent info;
@@ -32,18 +32,18 @@ struct linklist{
 
 
 
-void createList(linklist &L);
+void dllcreateList(linklist &L);
 address alokasi(string kata, int ID);
-void insertFirst(linklist &L, address P);
-void insertLast(linklist &L, address P);
-void insertAfter(linklist &L, address prec, address P);
-void deleteLast(linklist &L, address P);
-void deleteFirst(linklist &L, address P);
-void deleteAfter(linklist &L, address prec, address &P);
-address cari(linklist L, string kata);
-void update(address elemen_diubah, string kata);
-void show(linklist L);
-void dealokasi(address P);
+void dllinsertFirst(linklist &L, address P);
+void dllinsertLast(linklist &L, address P);
+void dllinsertAfter(linklist &L, address prec, address P);
+void dlldeleteLast(linklist &L, address P);
+void dlldeleteFirst(linklist &L, address P);
+void dlldeleteAfter(linklist &L, address prec, address &P);
+address dllcari(linklist L, string kata);
+void dllupdate(address elemen_diubah, string kata);
+void dllshow(linklist L);
+void dlldealokasi(address P);
 
 
 
