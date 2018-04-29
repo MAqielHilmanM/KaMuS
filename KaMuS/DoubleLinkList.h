@@ -2,48 +2,44 @@
 #define DOUBLELINKLIST_H_INCLUDED
 
 #include "mainHeader.h"
+#include "SingleLinkList.h"
+#include "CircularDoubleLinkList.h"
 #define first(L) L.first
 #define info(P) P->info
 #define next(P) P->next
 #define prev(P) P->prev
 #define last(L) L.last
 
-using namespace std;
-struct parent{
-    int ID;
-    string kata;
-    long tanggal;
-    int hint;
+struct infotypeRelation{
+    adrParent idParent;
+    adrChild;
+    int i;
 };
 
-typedef struct elemen *adrRelation;
+typedef struct elementRelation *adrRelation;
 
-struct elemen{
-    parent info;
-    address next;
-    address prev;
+struct elementRelation{
+    infotypeRelation info;
+    adrRelation next;
+    adrRelation prev;
 };
-struct linklist{
-    address first;
-    address last;
+struct ListRelation{
+    adrRelation first;
+    adrRelation last;
 };
 
-
-
-
-
-void dllcreateList(linklist &L);
-address alokasi(string kata, int ID);
-void dllinsertFirst(linklist &L, address P);
-void dllinsertLast(linklist &L, address P);
-void dllinsertAfter(linklist &L, address prec, address P);
-void dlldeleteLast(linklist &L, address P);
-void dlldeleteFirst(linklist &L, address P);
-void dlldeleteAfter(linklist &L, address prec, address &P);
-address dllcari(linklist L, string kata);
-void dllupdate(address elemen_diubah, string kata);
-void dllshow(linklist L);
-void dlldealokasi(address P);
+void createList(ListRelation &L);
+adrRelation alokasi(adrParent parent, adrChild child);
+void insertFirst(ListRelation &L, adrRelation P);
+void insertLast(ListRelation &L, adrRelation P);
+void insertAfter(ListRelation &L, adrRelation prec, adrRelation P);
+void deleteLast(ListRelation &L, adrRelation P);
+void deleteFirst(ListRelation &L, adrRelation P);
+void deleteAfter(ListRelation &L, adrRelation prec, adrRelation &P);
+adrRelation cari(ListRelation L, string kata);
+void update(adrRelation elemen_diubah, string kata);
+void show(ListRelation L);
+void dealokasi(adrRelation P);
 
 
 

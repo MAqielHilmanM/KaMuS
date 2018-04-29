@@ -22,7 +22,7 @@ struct infotypeChild{
 
 typedef struct elementChild *adrChild;
 
-struct element_child{
+struct elementaChild{
     infotypeChild info;
     adrChild next;
     adrChild prev;
@@ -30,6 +30,7 @@ struct element_child{
 
 struct ListChild{
     adrChild first;
+    adrChild last;
 };
 
 

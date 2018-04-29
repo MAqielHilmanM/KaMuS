@@ -7,7 +7,7 @@ void createList(ListParent &L){
 
 adrParent alokasi(string kata){
     adrParent P;
-    P = new elemen;
+    P = new elementParent;
     info(P).kata = kata;
     info(P).tanggal = CurrentTimestamp();
     info(P).counter = 0;
@@ -74,30 +74,16 @@ void deleteFirst(ListParent &L, adrParent P){
 
 void deleteAfter(ListParent &L, adrParent prec, adrParent &P){
     if (first(L) != NULL && prec != NULL){
-        address P;
-        P = next(first(L));
+        adrParent Q;
+        Q = next(first(L));
         next(first(L)) = next(P);
         next(P) = NULL;
-    }
-}
-void deleteLast(ListParent &L, adrParent P){
-    if ( first(L) == NULL){
-        cout<<"DATA TIDAK ADA";
-    }else{
-        adrParent Q;
-        while (next(next(Q)) != NULL){
-            Q = next(Q);
-        P = next(Q);
-        next(Q) = NULL;
-        }
-    }else if (next(first(L)) == NULL){
-        adrParent Q;
-        Q = deleteFirst(L,P);
+
     }
 }
 
 
-void show(ListParent &L){
+void show(ListParent L){
     if(first(L) != NULL){
         adrParent P;
         P = first(L);
@@ -107,14 +93,14 @@ void show(ListParent &L){
         }
     }
 }
-address cari(ListParent L, string kata){
+adrParent cari(ListParent L, string kata){
     if (first(L) != NULL){
-        address P;
+        adrParent P;
         P = first(L);
         while ((P != NULL) && (info(P).kata != kata)){
             P = next(P);
         }
-        if (info(P).kata == kata){
+        if (P != NULL){
             return P;
         } else {
             return NULL;
