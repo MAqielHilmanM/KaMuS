@@ -23,6 +23,7 @@ struct infotypeChild{
 typedef struct elementaChild *adrChild;
 
 struct elementaChild{
+struct elementChild{
     infotypeChild info;
     adrChild next;
     adrChild prev;

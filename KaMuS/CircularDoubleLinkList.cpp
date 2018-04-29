@@ -8,6 +8,7 @@ adrChild alokasi(string kata){
     adrChild P;
     P = new element_child;
     P = new elementaChild;
+    P = new elementChild;
     info(P).kata = kata;
     info(P).tanggal = CurrentTimestamp();
     info(P).counter = 0;
@@ -69,6 +70,7 @@ void deleteLast(ListChild &L, adrChild P){
 void dealokasi(adrChild P){
     delete P;
 }
+/*
 void deleteFirst(ListChild &L, adrChild P){
     if(first(L) == NULL){
         cout << "DATA KOSONG";
@@ -76,7 +78,6 @@ void deleteFirst(ListChild &L, adrChild P){
         adrChild P;
         P = first(L);
         first(L) = NULL;
-        last(L) = NULL;
         dealokasi(P);
     }else {
         adrChild P;
@@ -87,3 +88,4 @@ void deleteFirst(ListChild &L, adrChild P){
         delete P;
     }
 }
+*/

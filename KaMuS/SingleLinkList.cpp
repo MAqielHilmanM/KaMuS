@@ -14,6 +14,7 @@ adrParent alokasi(string kata){
     next(P) = NULL;
     return P;
 }
+
 void insertFirst(ListParent &L, adrParent P){
     if (first(L) == NULL){
          first(L) = P;
@@ -110,6 +111,7 @@ adrParent cari(ListParent L, string kata){
 
     }
 }
+
 void update(adrParent elemen_diubah, string kata){
     info(elemen_diubah).kata = kata;
 }
