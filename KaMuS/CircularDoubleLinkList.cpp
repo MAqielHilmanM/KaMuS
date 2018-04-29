@@ -5,8 +5,7 @@ void createList(ListChild &L){
 }
 
 adrChild alokasi(string kata){
-    adrChild P;
-    P = new elementChild;
+    adrChild P = new elementChild;
     info(P).kata = kata;
     info(P).tanggal = CurrentTimestamp();
     info(P).counter = 0;
@@ -130,12 +129,13 @@ void update(adrChild &elemen_diubah, long tanggal){
 }
 
 void show(ListChild L){
-    if(L != NULL){
+    if(first(L) != NULL){
         adrChild P = first(L);
         do{
             cout << "Kata : "<<info(P).kata<<endl;
-            cout << "tanggal : "<<info(P).kata<<endl;
-            cout << "Kata : "<<info(P).kata<<endl;
-        }
+            cout << "tanggal : "<<info(P).tanggal<<endl;
+            cout << "counter : "<<info(P).counter<<endl;
+            P = next(P);
+        }while(P != first(L));
     }
 }

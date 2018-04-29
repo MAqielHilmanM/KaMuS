@@ -1,27 +1,31 @@
 #ifndef DOUBLELINKLIST_H_INCLUDED
 #define DOUBLELINKLIST_H_INCLUDED
 
-#include "mainHeader.h"
 #include "SingleLinkList.h"
 #include "CircularDoubleLinkList.h"
+#include "mainHeader.h"
+
+
 #define first(L) L.first
 #define info(P) P->info
 #define next(P) P->next
 #define prev(P) P->prev
+#define child(P) P->child
+#define parent(P) P->parent
 #define last(L) L.last
 
-struct infotypeRelation{
-    adrParent idParent;
-    adrChild idChild;
-    int count;
-};
+
+
+typedef int infotype;
 
 typedef struct elementRelation *adrRelation;
 
 struct elementRelation{
-    infotypeRelation info;
     adrRelation next;
     adrRelation prev;
+    adrChild child;
+    adrParent parent;
+    infotype info;
 };
 struct ListRelation{
     adrRelation first;

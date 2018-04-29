@@ -1,7 +1,9 @@
 #ifndef SINGLELINKLIST_H_INCLUDED
 #define SINGLELINKLIST_H_INCLUDED
 
+#include "tools.h"
 #include "mainHeader.h"
+
 #define first(L) L.first
 #define info(P) P->info
 #define next(P) P->next

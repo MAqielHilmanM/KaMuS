@@ -3,6 +3,7 @@
 
 //Circullar Double Link List without pointer last used as Child (English word Storage)
 #include "mainHeader.h"
+#include "tools.h"
 
 #define first(L) L.first
 #define info(P) P->info
@@ -27,6 +28,7 @@ struct elementChild{
     adrChild next;
     adrChild prev;
 };
+
 
 struct ListChild{
     adrChild first;
