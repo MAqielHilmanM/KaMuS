@@ -1,14 +1,13 @@
 #include "view.h"
 
-void mainView(){
+void mainView(ListParent pl, ListRelation rl, ListChild cl){
     //Variable
     string huruf;
-
 
     cout<<"================================="<<endl;
     cout<<"        APLIKASI KAMUS         "<<endl;
     cout<<"================================="<<endl;
-    ShowCurrentTime();
+    ShowFromTimestamp(CurrentTimestamp());
     cout<<endl;
     cout<<"================================="<<endl;
     cout<<"Silahkan Pilih Menu Utama"<<endl;

@@ -2,6 +2,7 @@
 #define MAINHEADER_H_INCLUDED
 
 #include <iostream>
+#include <stdlib.h>
 #include <chrono>
 #include <ctime>
 #include <time.h>

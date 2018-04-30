@@ -2,9 +2,8 @@
 #define DOUBLELINKLIST_H_INCLUDED
 
 #include "SingleLinkList.h"
-#include "CircularDoubleLinkList.h"
 #include "mainHeader.h"
-
+#include "CircularDoubleLinkList.h"
 
 #define first(L) L.first
 #define info(P) P->info
@@ -13,8 +12,6 @@
 #define child(P) P->child
 #define parent(P) P->parent
 #define last(L) L.last
-
-
 
 typedef int infotype;
 

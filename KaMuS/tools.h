@@ -2,10 +2,6 @@
 #define TOOLS_H_INCLUDED
 
 #include "mainHeader.h"
-#include "SingleLinkList.h"
-#include "DoubleLinkList.h"
-#include "CircularDoubleLinkList.h"
-
 /*
 struct tm {
    int tm_sec;   // seconds of minutes from 0 to 61
@@ -21,5 +17,6 @@ struct tm {
 */
 int CurrentTimestamp();
 void ShowCurrentTime();
+void ShowFromTimestamp(long timestamp);
 void clrscr();
 #endif // TOOLS_H_INCLUDED

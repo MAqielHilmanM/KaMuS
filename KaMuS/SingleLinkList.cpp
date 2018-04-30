@@ -5,7 +5,7 @@ void createList(ListParent &L){
     first(L) = NULL;
 }
 
-adrParent alokasi(string kata){
+adrParent alokasiParent(string kata){
     adrParent P = new elementParent;
     info(P).kata = kata;
     info(P).tanggal = CurrentTimestamp();

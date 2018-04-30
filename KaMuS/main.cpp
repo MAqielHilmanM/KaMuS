@@ -1,11 +1,16 @@
-#include "mainHeader.h"
-#include "tools.h"
-#include "CircularDoubleLinkList.h"
-#include "SingleLinkList.h"
-#include "DoubleLinkList.h"
+#include "view.h"
 
 int main()
 {
-    clrscr();
+    ListParent parentList;
+    ListChild childList;
+    ListRelation relationList;
+
+    createList(parentList);
+    createList(childList);
+    createList(relationList);
+
+    mainView(parentList,relationList,childList);
+    system("cls");
     return 0;
 }

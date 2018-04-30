@@ -4,7 +4,7 @@ void createList(ListChild &L){
     first(L) = NULL;
 }
 
-adrChild alokasi(string kata){
+adrChild alokasiChild(string kata){
     adrChild P = new elementChild;
     info(P).kata = kata;
     info(P).tanggal = CurrentTimestamp();
@@ -44,14 +44,10 @@ void insertLast(ListChild &L, adrChild P){
     if (first(L) == NULL){
         first(L) = P;
     }else{
-        adrChild Q = first(L);
-        while(next(Q) != first(L)){
-            Q = next(Q);
-        }
         next(P) = first(L);
+        prev(P) = prev(first(L));
+        next(prev(P)) = P;
         prev(first(L)) = P;
-        prev(P) = Q;
-        next(Q) = P;
     }
 }
 
@@ -98,11 +94,11 @@ void deleteLast(ListChild &L, adrChild &P){
 
 
 adrChild cariKata(ListChild L, string kata){
-    if(L != NULL){
+    if(first(L) != NULL){
         adrChild child = first(L);
         do{
             child = next(child);
-        }while(child != first(L) && info(child).kata == kata);
+        }while(child != first(L) && info(child).kata != kata);
 
         if(info(child).kata == kata){
              return child;
@@ -113,17 +109,17 @@ adrChild cariKata(ListChild L, string kata){
 }
 
 void update(adrChild &elemen_diubah, string kata){
-    if(adrChild != NULL){
+    if(elemen_diubah != NULL){
         info(elemen_diubah).kata = kata;
     }
 }
 void update(adrChild &elemen_diubah, int counter){
-    if(adrChild != NULL){
+    if(elemen_diubah != NULL){
         info(elemen_diubah).counter = counter;
     }
 }
 void update(adrChild &elemen_diubah, long tanggal){
-    if(adrChild != NULL){
+    if(elemen_diubah != NULL){
         info(elemen_diubah).tanggal = tanggal;
     }
 }

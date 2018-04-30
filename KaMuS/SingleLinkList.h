@@ -28,7 +28,7 @@ struct ListParent{
 
 
 void createList(ListParent &L);
-adrParent alokasi(string kata);
+adrParent alokasiParent(string kata);
 void insertFirst(ListParent &L, adrParent P);
 void insertLast(ListParent &L, adrParent P);
 void insertAfter(ListParent &L, adrParent prec, adrParent P);
