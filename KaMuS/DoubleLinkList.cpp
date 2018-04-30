@@ -78,7 +78,7 @@ void deleteFirst(ListRelation &L, adrRelation &P){
  }
 }
 void deleteAfter(ListRelation &L, adrRelation prec, adrRelation &P){
-    if (first(L) != NULL && prec !=  NULL){
+    if ((first(L) != NULL) && (prec !=  NULL)){
         if (prec != last(L)){
             P = next(prec);
             next(prec) = next(P);
