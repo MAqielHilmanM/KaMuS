@@ -126,8 +126,8 @@ void update(adrChild &elemen_diubah, long tanggal){
     }
 }
 
-void showAll(ListChild L){
-    int i = 0;
+void show(ListChild L){
+    int i = 1;
     if(first(L) != NULL){
         adrChild P = first(L);
         do{
@@ -135,7 +135,6 @@ void showAll(ListChild L){
             cout << "Kata : "<<info(P).kata<<endl;
             cout << "tanggal : ";
             ShowFromTimestamp(info(P).tanggal);
-            cout<<endl;
             cout << "counter : "<<info(P).counter<<endl;
             cout << endl;
             P = next(P);

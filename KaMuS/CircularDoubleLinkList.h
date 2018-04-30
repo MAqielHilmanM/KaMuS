@@ -53,7 +53,7 @@ adrChild cariTanggal(ListChild L, long tanggal);
 void update(adrChild &elemen_diubah, string kata);
 void update(adrChild &elemen_diubah, int counter);
 void update(adrChild &elemen_diubah, long tanggal);
-void showAll(ListChild L);
+void show(ListChild L);
 
 
 

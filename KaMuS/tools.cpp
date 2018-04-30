@@ -24,16 +24,3 @@ void ShowCurrentTime(){
 void clrscr(){
     cout << "\033[2J\033[1;1H";
 }
-
-
-//Debugger For check Link List
-void DebuggerRelation(){
-}
-
-void DebuggerChild(){
-
-}
-
-void DebuggerParent(){
-
-}

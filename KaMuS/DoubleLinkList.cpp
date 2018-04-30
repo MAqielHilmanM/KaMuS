@@ -135,17 +135,18 @@ void update(adrRelation elemen_diubah, int counter){
     info(elemen_diubah) = counter;
 }
 
-/*
+
 void show(ListRelation L){
+    int i = 1;
     if (first(L) != NULL){
         last(L) = first(L);
-        while (next(last(L)) != NULL){
-            cout<< info(last(L));
+        do{
+            cout << i++ << ". " << info(parent(last(L))).kata << " = "<< info(child(last(L))).kata << endl;
             last(L) = next(last(L));
-        }
+        }while(next(last(L)) != NULL);
     }
 }
-*/
+
 
 void dealokasi(adrRelation P){
     delete P;
