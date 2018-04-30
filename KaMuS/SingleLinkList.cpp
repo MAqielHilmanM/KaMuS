@@ -111,7 +111,7 @@ adrParent cariKata(ListParent L, string kata){
             return P;
         } else {
             return NULL;
-    }
+        }
     }else {
         return NULL;
 
@@ -137,6 +137,12 @@ adrParent cariTanggal(ListParent L, long tanggal){
 }
 void update(adrParent elemen_diubah, string kata){
     info(elemen_diubah).kata = kata;
+}
+void update(adrParent elemen_diubah, int counter){
+    info(elemen_diubah).counter = counter;
+}
+void update(adrParent elemen_diubah, long tgl){
+    info(elemen_diubah).tanggal = tgl;
 }
 void show(ListParent L){
     if(first(L) != NULL){

@@ -49,6 +49,9 @@ void InputView(ListParent &pl, ListRelation &rl, ListChild &cl,int menu){
     case 1 :
         IngToInd(pl,rl,cl,kata);
         break;
+    case 2 :
+        IndoToIng(pl,rl,cl,kata);
+        break;
     }
 }
 
@@ -78,7 +81,34 @@ void IngToInd(ListParent &pl,ListRelation &rl,ListChild &cl,string kata){
         }
     }
 }
-
+void IndoToIng(ListParent &parentList, ListRelation &relationList, ListChild &childList, string kata){
+    adrParent Ind = cariKata(parentList,kata);
+    string input;
+    if (Ind != NULL){
+        update(Ind,info(Ind).counter++);
+        adrRelation artikan = cariChild(relationList,Ind);
+        if(artikan != NULL){
+           adrChild kataEnglish = child(artikan);
+           cout << "TERJEMAHAN DITEMUKAN"<< endl;
+           cout << kata << " = " << info(kataEnglish).kata << endl;
+           update(artikan,info(artikan)++);
+        }else{
+            cout << "Terjemahan Tidak Ditemukan"<<endl;
+            cout << "Apakah ingin menambahkan kata terjemahan baru ? [Y/N]";
+            cin >> input;
+            if(input == "Y" ){
+                addNew(relationList,childList,Ind);
+            }
+        }
+    }else{
+        cout << "KATA TIDAK DITEMUKAN"<<endl;
+        cout << "Apakah ingin menambahkan terjemahan baru ?? [Y/N] ";
+        cin >> input;
+        if(input == "Y" ) {
+            addNew(parentList,relationList,childList,kata,2);
+        }
+    }
+}
 // type : 1 => EngtoInd, 2 => IndtoEng
 void addNew(ListParent &pl,ListRelation &rl,ListChild &cl,string kata,int type){
     if(type == 1){
@@ -102,8 +132,8 @@ void addNew(ListParent &pl,ListRelation &rl,ListChild &cl,string kata,int type){
         insertLast(rl,alokasi(P,Q));
     }
     cout << "arti berhasil di tambahkan";
-}
 
+}
 void addNew(ListRelation &rl,ListChild &cl,adrParent parent){
         cout << "arti = ";
         string arti;
@@ -113,6 +143,7 @@ void addNew(ListRelation &rl,ListChild &cl,adrParent parent){
         insertLast(rl,alokasi(parent,Q));
         cout << "arti berhasil di tambahkan";
 }
+
 void addNew(ListRelation &rl,ListParent &pl,adrChild child){
         cout << "arti = ";
         string arti;
