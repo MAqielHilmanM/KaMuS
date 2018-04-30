@@ -42,7 +42,10 @@ void deleteAfter(ListRelation &L, adrRelation prec, adrRelation &P);
 adrRelation cariParent(ListRelation L, adrChild child);
 adrRelation cariChild(ListRelation L, adrParent parent);
 
-void update(adrRelation elemen_diubah, string kata);
+
+void update(adrRelation elemen_diubah, adrParent parent);
+void update(adrRelation elemen_diubah, adrChild child);
+void update(adrRelation elemen_diubah, int counter);
 void show(ListRelation L);
 void dealokasi(adrRelation P);
 

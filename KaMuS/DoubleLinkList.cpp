@@ -131,6 +131,10 @@ void update(adrRelation elemen_diubah, adrParent parent){
 void update(adrRelation elemen_diubah, adrChild child){
     child(elemen_diubah) = child;
 }
+void update(adrRelation elemen_diubah, int counter){
+    info(elemen_diubah) = counter;
+}
+
 /*
 void show(ListRelation L){
     if (first(L) != NULL){

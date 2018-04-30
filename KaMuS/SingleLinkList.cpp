@@ -100,7 +100,7 @@ void deleteAfter(ListParent &L, adrParent prec, adrParent &P){
     }
 }
 
-adrParent cari(ListParent L, string kata){
+adrParent cariKata(ListParent L, string kata){
     if (first(L) != NULL){
         adrParent P;
         P = first(L);

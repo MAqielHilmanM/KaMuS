@@ -103,8 +103,10 @@ adrChild cariKata(ListChild L, string kata){
         if(info(child).kata == kata){
              return child;
         }else{
-             cout << "Data Not Found";
+            return NULL;
         }
+    }else{
+        return NULL;
     }
 }
 
@@ -124,13 +126,18 @@ void update(adrChild &elemen_diubah, long tanggal){
     }
 }
 
-void show(ListChild L){
+void showAll(ListChild L){
+    int i = 0;
     if(first(L) != NULL){
         adrChild P = first(L);
         do{
+            cout << i++ << "."<<endl;
             cout << "Kata : "<<info(P).kata<<endl;
-            cout << "tanggal : "<<info(P).tanggal<<endl;
+            cout << "tanggal : ";
+            ShowFromTimestamp(info(P).tanggal);
+            cout<<endl;
             cout << "counter : "<<info(P).counter<<endl;
+            cout << endl;
             P = next(P);
         }while(P != first(L));
     }
