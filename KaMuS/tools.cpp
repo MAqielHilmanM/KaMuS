@@ -4,7 +4,10 @@ int CurrentTimestamp(){
     time_t now = time(0);
     return now;
 }
-
+void ShowFromTimestamp(long timestamp){
+    time_t time = timestamp;
+    cout<<ctime(&time)<<endl;
+}
 void ShowCurrentTime(){
    time_t now = time(0);
    tm *ltm = localtime(&now);
@@ -22,3 +25,15 @@ void clrscr(){
     cout << "\033[2J\033[1;1H";
 }
 
+
+//Debugger For check Link List
+void DebuggerRelation(){
+}
+
+void DebuggerChild(){
+
+}
+
+void DebuggerParent(){
+
+}

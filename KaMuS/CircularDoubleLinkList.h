@@ -2,6 +2,7 @@
 #define CIRCULARDOUBLELINKLIST_H_INCLUDED
 
 //Circullar Double Link List without pointer last used as Child (English word Storage)
+#include "tools.h"
 #include "mainHeader.h"
 
 #define first(L) L.first
@@ -12,7 +13,7 @@
 // InfoType :
 // kata = used for save english keyword
 // tanggal = used for save timestamp (conversion of date time)
-// counter = used for save how many this data been accessed
+
 
 struct infotypeChild{
     string kata;
@@ -30,26 +31,29 @@ struct elementChild{
 
 struct ListChild{
     adrChild first;
-    adrChild last;
 };
+
 
 
 void createList(ListChild &L);
 
-adrChild alokasi(string kata);
+adrChild alokasiChild(string kata);
 void dealokasi(adrChild P);
 
 void insertFirst(ListChild &L, adrChild P);
 void insertAfter(ListChild &L, adrChild prec, adrChild P);
 void insertLast(ListChild &L, adrChild P);
 
-void deleteFirst(ListChild &L, adrChild P);
+void deleteFirst(ListChild &L, adrChild &P);
 void deleteAfter(ListChild &L, adrChild prec, adrChild &P);
-void deleteLast(ListChild &L, adrChild P);
+void deleteLast(ListChild &L, adrChild &P);
 
-adrChild cari(ListChild L, string kata);
-void update(adrChild elemen_diubah, string kata);
-void show(ListChild L);
+adrChild cariKata(ListChild L, string kata);
+adrChild cariTanggal(ListChild L, long tanggal);
+void update(adrChild &elemen_diubah, string kata);
+void update(adrChild &elemen_diubah, int counter);
+void update(adrChild &elemen_diubah, long tanggal);
+void showAll(ListChild L);
 
 
 

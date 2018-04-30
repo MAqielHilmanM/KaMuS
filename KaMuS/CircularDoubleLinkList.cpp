@@ -4,15 +4,18 @@ void createList(ListChild &L){
     first(L) = NULL;
 }
 
-adrChild alokasi(string kata){
-    adrChild P;
-    P = new elementChild;
+adrChild alokasiChild(string kata){
+    adrChild P = new elementChild;
     info(P).kata = kata;
     info(P).tanggal = CurrentTimestamp();
     info(P).counter = 0;
     next(P) = P;
     prev(P) = P;
     return P;
+}
+
+void dealokasi(adrChild P){
+    delete P;
 }
 
 void insertFirst(ListChild &L, adrChild P){
@@ -26,20 +29,6 @@ void insertFirst(ListChild &L, adrChild P){
     }
 }
 
-void insertLast(ListChild &L, adrChild P){
-    if (first(L) == NULL){
-        first(L) = P;
-    }else{
-        adrChild Q = first(L);
-        while(next(Q) != first(L)){
-            Q = next(Q);
-        }
-        next(P) = first(L);
-        prev(first(L)) = P;
-        prev(P) = Q;
-        next(Q) = P;
-    }
-}
 void insertAfter(ListChild &L, adrChild prec, adrChild &P){
     if (first(L) == NULL){
         first(L) = P;
@@ -50,41 +39,106 @@ void insertAfter(ListChild &L, adrChild prec, adrChild &P){
         prev(next(P)) = P;
     }
 }
-void deleteLast(ListChild &L, adrChild P){
+
+void insertLast(ListChild &L, adrChild P){
+    if (first(L) == NULL){
+        first(L) = P;
+    }else{
+        next(P) = first(L);
+        prev(P) = prev(first(L));
+        next(prev(P)) = P;
+        prev(first(L)) = P;
+    }
+}
+
+
+void deleteFirst(ListChild &L, adrChild &P){
+    if(first(L) == NULL){
+        cout << "DATA KOSONG";
+    }else {
+        P = first(L);
+        first(L) = next(P);
+        prev(next(P)) = prev(P);
+        next(prev(P)) = next(P);
+        next(P) = NULL;
+        prev(P) = NULL;
+    }
+}
+
+void deleteAfter(ListChild &L, adrChild prec, adrChild &P){
+    if(first(L) == NULL){
+        cout << "DATA KOSONG";
+    }else{
+        next(prec) = P;
+
+        next(prec) = next(P);
+        prev(next(P)) = prec;
+
+        prev(P) = NULL;
+        next(P) = NULL;
+    }
+}
+
+void deleteLast(ListChild &L, adrChild &P){
     if(first(L) == NULL){
         cout<< "DATA KOSONG";
     }else{
-        adrChild Q = first(L);
-        while(next(Q) != first(L)){
-            Q = next(Q);
-        }
-        P = Q;
-        Q = prev(Q);
-        Q = first(L);
-        prev(first(L)) = Q;
+        P = prev(first(L));
+        next(prev(P)) = first(L);
+        prev(first(L)) = prev(P);
+        next(P) = NULL;
+        prev(P) = NULL;
         dealokasi(P);
     }
-}
-void dealokasi(adrChild P){
-    delete P;
 }
 
-/*
-void deleteFirst(ListChild &L, adrChild P){
-    if(first(L) == NULL){
-        cout << "DATA KOSONG";
-    }else if(next(first(L))== NULL){
-        adrChild P;
-        P = first(L);
-        first(L) = NULL;
-        dealokasi(P);
-    }else {
-        adrChild P;
-        P = first(L);
-        first(L) = next(P);
-        prev(first(L)) = NULL;
-        next(P) = NULL;
-        delete P;
+
+adrChild cariKata(ListChild L, string kata){
+    if(first(L) != NULL){
+        adrChild child = first(L);
+        do{
+            child = next(child);
+        }while(child != first(L) && info(child).kata != kata);
+
+        if(info(child).kata == kata){
+             return child;
+        }else{
+            return NULL;
+        }
+    }else{
+        return NULL;
     }
 }
-*/
+
+void update(adrChild &elemen_diubah, string kata){
+    if(elemen_diubah != NULL){
+        info(elemen_diubah).kata = kata;
+    }
+}
+void update(adrChild &elemen_diubah, int counter){
+    if(elemen_diubah != NULL){
+        info(elemen_diubah).counter = counter;
+    }
+}
+void update(adrChild &elemen_diubah, long tanggal){
+    if(elemen_diubah != NULL){
+        info(elemen_diubah).tanggal = tanggal;
+    }
+}
+
+void showAll(ListChild L){
+    int i = 0;
+    if(first(L) != NULL){
+        adrChild P = first(L);
+        do{
+            cout << i++ << "."<<endl;
+            cout << "Kata : "<<info(P).kata<<endl;
+            cout << "tanggal : ";
+            ShowFromTimestamp(info(P).tanggal);
+            cout<<endl;
+            cout << "counter : "<<info(P).counter<<endl;
+            cout << endl;
+            P = next(P);
+        }while(P != first(L));
+    }
+}

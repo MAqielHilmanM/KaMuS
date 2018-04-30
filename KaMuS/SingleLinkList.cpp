@@ -5,9 +5,8 @@ void createList(ListParent &L){
     first(L) = NULL;
 }
 
-adrParent alokasi(string kata){
-    adrParent P;
-    P = new elementParent;
+adrParent alokasiParent(string kata){
+    adrParent P = new elementParent;
     info(P).kata = kata;
     info(P).tanggal = CurrentTimestamp();
     info(P).counter = 0;
@@ -101,7 +100,7 @@ void deleteAfter(ListParent &L, adrParent prec, adrParent &P){
     }
 }
 
-adrParent cari(ListParent L, string kata){
+adrParent cariKata(ListParent L, string kata){
     if (first(L) != NULL){
         adrParent P;
         P = first(L);

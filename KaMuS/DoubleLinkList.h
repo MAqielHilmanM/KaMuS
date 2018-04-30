@@ -1,27 +1,28 @@
 #ifndef DOUBLELINKLIST_H_INCLUDED
 #define DOUBLELINKLIST_H_INCLUDED
 
-#include "mainHeader.h"
 #include "SingleLinkList.h"
+#include "mainHeader.h"
 #include "CircularDoubleLinkList.h"
+
 #define first(L) L.first
 #define info(P) P->info
 #define next(P) P->next
 #define prev(P) P->prev
+#define child(P) P->child
+#define parent(P) P->parent
 #define last(L) L.last
 
-struct infotypeRelation{
-    adrParent idParent;
-    adrChild idChild;
-    int count;
-};
+typedef int infotype;
 
 typedef struct elementRelation *adrRelation;
 
 struct elementRelation{
-    infotypeRelation info;
     adrRelation next;
     adrRelation prev;
+    adrChild child;
+    adrParent parent;
+    infotype info;
 };
 struct ListRelation{
     adrRelation first;
@@ -41,7 +42,10 @@ void deleteAfter(ListRelation &L, adrRelation prec, adrRelation &P);
 adrRelation cariParent(ListRelation L, adrChild child);
 adrRelation cariChild(ListRelation L, adrParent parent);
 
-void update(adrRelation elemen_diubah, string kata);
+
+void update(adrRelation elemen_diubah, adrParent parent);
+void update(adrRelation elemen_diubah, adrChild child);
+void update(adrRelation elemen_diubah, int counter);
 void show(ListRelation L);
 void dealokasi(adrRelation P);
 

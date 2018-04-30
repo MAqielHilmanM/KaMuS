@@ -2,14 +2,13 @@
 #define MAINHEADER_H_INCLUDED
 
 #include <iostream>
-#include <string>
 #include <stdlib.h>
 #include <chrono>
 #include <ctime>
-#include <ratio>
-
-#include "tools.h"
+#include <time.h>
+#include <string>
 
 using namespace std;
+
 
 #endif // MAINHEADER_H_INCLUDED

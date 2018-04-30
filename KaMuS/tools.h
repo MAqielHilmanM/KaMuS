@@ -17,5 +17,6 @@ struct tm {
 */
 int CurrentTimestamp();
 void ShowCurrentTime();
+void ShowFromTimestamp(long timestamp);
 void clrscr();
 #endif // TOOLS_H_INCLUDED
