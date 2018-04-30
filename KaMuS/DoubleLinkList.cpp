@@ -78,11 +78,7 @@ void deleteFirst(ListRelation &L, adrRelation &P){
  }
 }
 void deleteAfter(ListRelation &L, adrRelation prec, adrRelation &P){
-<<<<<<< HEAD
     if ((first(L) != NULL) && (prec !=  NULL)){
-=======
-    if (first(L) != NULL && prec !=  NULL){
->>>>>>> 9a265ae77b1434c886b4517be9a3826b61f19930
         if (prec != last(L)){
             P = next(prec);
             next(prec) = next(P);
@@ -99,13 +95,8 @@ void deleteAfter(ListRelation &L, adrRelation prec, adrRelation &P){
 
 adrRelation cariParent(ListRelation L, adrChild child){
     if (first(L) != NULL){
-<<<<<<< HEAD
-        adrRelation P;
-        while((next(P) != NULL) && (info(P) != info(child))){
-=======
         adrRelation P = first(L);
         while(next(P) != NULL && child(P) != child){
->>>>>>> 9a265ae77b1434c886b4517be9a3826b61f19930
             P = next(P);
         }
         if (child(P) == child){
