@@ -7,9 +7,9 @@
 #include "SingleLinkList.h"
 #include "DoubleLinkList.h"
 
-void mainView(ListParent pl, ListRelation rl, ListChild cl);
-void InputView(ListParent pl, ListRelation rl, ListChild cl,int menu);
-void IngToInd(ListParent lp,ListRelation lr,ListChild lc,string kata);
+void mainView(ListParent &pl, ListRelation &rl, ListChild &cl);
+void InputView(ListParent &pl, ListRelation &rl, ListChild &cl,int menu);
+void IngToInd(ListParent &pl,ListRelation &rl,ListChild &cl,string kata);
 
 void addNew(ListParent &pl,ListRelation &rl,ListChild &cl,string kata,int type);
 void addNew(ListRelation &rl,ListChild &cl,adrParent parent);

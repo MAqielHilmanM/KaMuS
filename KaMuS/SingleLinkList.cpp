@@ -27,7 +27,7 @@ void insertLast(ListParent &L, adrParent P){
     if (first(L) == NULL){
         first(L) = P;
     }else{
-        adrParent Q;
+        adrParent Q = first(L);
         while (next(Q) != NULL){
             Q = next(Q);
         next(Q) = P;

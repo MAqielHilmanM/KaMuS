@@ -1,6 +1,6 @@
 #include "view.h"
 
-void mainView(ListParent pl, ListRelation rl, ListChild cl){
+void mainView(ListParent &pl, ListRelation &rl, ListChild &cl){
     //Variable
     cout<<"================================="<<endl;
     cout<<"        APLIKASI KAMUS         "<<endl;
@@ -21,7 +21,7 @@ void mainView(ListParent pl, ListRelation rl, ListChild cl){
     }
 }
 
-void subMenu(ListParent pl, ListRelation rl, ListChild cl){
+void subMenu(ListParent &pl, ListRelation &rl, ListChild &cl){
     system("cls");
     cout<<"================================="<<endl;
     cout<<"        APLIKASI KAMUS         "<<endl;
@@ -41,7 +41,7 @@ void subMenu(ListParent pl, ListRelation rl, ListChild cl){
     }
 }
 
-void InputView(ListParent pl, ListRelation rl, ListChild cl,int menu){
+void InputView(ListParent &pl, ListRelation &rl, ListChild &cl,int menu){
     string kata;
     cout<<"Masukan kata : ";
     cin>>kata;
@@ -52,9 +52,9 @@ void InputView(ListParent pl, ListRelation rl, ListChild cl,int menu){
     }
 }
 
-void IngToInd(ListParent pl,ListRelation rl,ListChild cl,string kata){
+void IngToInd(ListParent &pl,ListRelation &rl,ListChild &cl,string kata){
     adrChild engWords = cariKata(cl,kata);
-    char input = ' ';
+    string input = " ";
     if(engWords != NULL){
         update(engWords,info(engWords).counter++);
         adrRelation translate = cariParent(rl,engWords);
@@ -67,13 +67,15 @@ void IngToInd(ListParent pl,ListRelation rl,ListChild cl,string kata){
             cout << "Translate Not Found ! ! !"<<endl;
             cout << "Insert new translate for this words [Y/N] ??";
             cin >> input;
-            if(input == 'Y' ) addNew(rl,pl,engWords);
+            if(input == "Y" ) addNew(rl,pl,engWords);
         }
     }else{
         cout << "Words Not Found ! ! !"<<endl;
-        cout << "Insert new translate for this words [Y/N] ??";
+        cout << "Insert new translate for this words [Y/N] ? ";
         cin >> input;
-        if(input == 'Y' ) addNew(pl,rl,cl,kata,1);
+        if(input == "Y" ) {
+            addNew(pl,rl,cl,kata,1);
+        }
     }
 }
 
