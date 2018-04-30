@@ -145,11 +145,17 @@ void update(adrParent elemen_diubah, long tgl){
     info(elemen_diubah).tanggal = tgl;
 }
 void show(ListParent L){
+    int i = 1;
     if(first(L) != NULL){
         adrParent P;
         P = first(L);
         while ( P  != NULL){
-            cout<<"Kata : "<<info(P).kata<<endl;
+            cout << i++ << "."<<endl;
+            cout << "Kata : "<<info(P).kata<<endl;
+            cout << "tanggal : ";
+            ShowFromTimestamp(info(P).tanggal);
+            cout << "counter : "<<info(P).counter<<endl;
+            cout << endl;
             P = next(P);
         }
     }

@@ -18,6 +18,7 @@ int main()
     insertFirst(relationList,alokasi(parent1,child1));
 
     mainView(parentList,relationList,childList);
-    system("cls");
+//    system("cls");
+//    clrscr();
     return 0;
 }
