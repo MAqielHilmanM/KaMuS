@@ -1,34 +1,36 @@
 # depslib dependency file v1.0
 1523591658 source:c:\users\asus\documents\github\kamus\kamus\circularsinglelinklist.cpp
 
-1524403833 source:c:\users\asus\documents\github\kamus\kamus\doublelinklist.cpp
+1525157733 source:c:\users\asus\documents\github\kamus\kamus\doublelinklist.cpp
 	"DoubleLinkList.h"
 
-1524403895 c:\users\asus\documents\github\kamus\kamus\doublelinklist.h
+1525062789 c:\users\asus\documents\github\kamus\kamus\doublelinklist.h
+	"SingleLinkList.h"
 	"mainHeader.h"
+	"CircularDoubleLinkList.h"
 
-1525029929 source:c:\users\asus\documents\github\kamus\kamus\main.cpp
-	"mainHeader.h"
-
-1524905521 source:c:\users\asus\documents\github\kamus\kamus\tools.cpp
-	"tools.h"
-
-1525028257 source:c:\users\asus\documents\github\kamus\kamus\view.cpp
+1525072448 source:c:\users\asus\documents\github\kamus\kamus\main.cpp
 	"view.h"
 
-1524905521 c:\users\asus\documents\github\kamus\kamus\mainheader.h
+1525072448 source:c:\users\asus\documents\github\kamus\kamus\tools.cpp
+	"tools.h"
+
+1525158992 source:c:\users\asus\documents\github\kamus\kamus\view.cpp
+	"view.h"
+
+1525062789 c:\users\asus\documents\github\kamus\kamus\mainheader.h
 	<iostream>
-	<string>
 	<stdlib.h>
 	<chrono>
 	<ctime>
-	<ratio>
-	"tools.h"
+	<time.h>
+	<string>
 
-1525032250 source:c:\users\asus\documents\github\kamus\kamus\singlelinklist.cpp
+1525159286 source:c:\users\asus\documents\github\kamus\kamus\singlelinklist.cpp
 	"SingleLinkList.h"
 
-1525029516 c:\users\asus\documents\github\kamus\kamus\singlelinklist.h
+1525159253 c:\users\asus\documents\github\kamus\kamus\singlelinklist.h
+	"tools.h"
 	"mainHeader.h"
 
 1525065791 source:/home/maqielhm/Documents/TelkomUniversity/Semester2/STD/Tubes/KaMuS/KaMuS/DoubleLinkList.cpp
@@ -73,16 +75,21 @@
 	"tools.h"
 	"mainHeader.h"
 
-1524905521 c:\users\asus\documents\github\kamus\kamus\tools.h
+1525062789 c:\users\asus\documents\github\kamus\kamus\tools.h
 	"mainHeader.h"
 
-1525027895 c:\users\asus\documents\github\kamus\kamus\view.h
+1525073095 c:\users\asus\documents\github\kamus\kamus\view.h
 	"mainHeader.h"
+	"tools.h"
+	"CircularDoubleLinkList.h"
+	"SingleLinkList.h"
+	"DoubleLinkList.h"
 
-1525029929 source:c:\users\asus\documents\github\kamus\kamus\circulardoublelinklist.cpp
+1525157862 source:c:\users\asus\documents\github\kamus\kamus\circulardoublelinklist.cpp
 	"CircularDoubleLinkList.h"
 
-1525029929 c:\users\asus\documents\github\kamus\kamus\circulardoublelinklist.h
+1525072448 c:\users\asus\documents\github\kamus\kamus\circulardoublelinklist.h
+	"tools.h"
 	"mainHeader.h"
 
 1525045507 source:e:\telkom university\semester 2\std\ta\kamus\kamus\circulardoublelinklist.cpp

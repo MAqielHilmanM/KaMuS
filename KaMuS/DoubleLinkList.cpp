@@ -140,10 +140,11 @@ void show(ListRelation L){
     int i = 1;
     if (first(L) != NULL){
         last(L) = first(L);
-        do{
+        cout << i++ << ". " << info(parent(last(L))).kata << " = "<< info(child(last(L))).kata << endl;
+        while(next(last(L)) != NULL){
             cout << i++ << ". " << info(parent(last(L))).kata << " = "<< info(child(last(L))).kata << endl;
             last(L) = next(last(L));
-        }while(next(last(L)) != NULL);
+        }
     }
 }
 

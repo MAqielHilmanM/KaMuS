@@ -111,7 +111,7 @@ adrParent cariKata(ListParent L, string kata){
             return P;
         } else {
             return NULL;
-    }
+        }
     }else {
         return NULL;
 
@@ -138,17 +138,24 @@ adrParent cariTanggal(ListParent L, long tanggal){
 void update(adrParent elemen_diubah, string kata){
     info(elemen_diubah).kata = kata;
 }
+void update(adrParent elemen_diubah, int counter){
+    info(elemen_diubah).counter = counter;
+}
+void update(adrParent elemen_diubah, long tgl){
+    info(elemen_diubah).tanggal = tgl;
+}
 void show(ListParent L){
     int i = 1;
     if(first(L) != NULL){
         adrParent P;
         P = first(L);
         while ( P  != NULL){
+            cout<<"=====Indonesian Only==="<<endl;
             cout << i++ << "."<<endl;
             cout << "Kata : "<<info(P).kata<<endl;
-            cout << "tanggal : ";
+            cout << "Tanggal : ";
             ShowFromTimestamp(info(P).tanggal);
-            cout << "counter : "<<info(P).counter<<endl;
+            cout << "Counter : "<<info(P).counter<<endl;
             cout << endl;
             P = next(P);
         }
@@ -157,4 +164,14 @@ void show(ListParent L){
 
 void dealokasi(adrParent P){
     delete P;
+}
+void banyakParent(ListParent &parentList, adrParent P){
+    int i;
+    i = 1;
+    P = first(parentList);
+    while (P != NULL){
+        P = next(P);
+        i = i + 1;
+    }
+    cout<<"Banyaknya List Parent adalah "<<i<<endl;
 }
