@@ -8,6 +8,7 @@
 #include "DoubleLinkList.h"
 
 void mainView(ListParent &pl, ListRelation &rl, ListChild &cl);
+void subMenu(ListParent &pl, ListRelation &rl, ListChild &cl);
 void InputView(ListParent &pl, ListRelation &rl, ListChild &cl,int menu);
 void IngToInd(ListParent &pl,ListRelation &rl,ListChild &cl,string kata);
 void IndoToIng(ListParent &parentList, ListRelation &relationList, ListChild &childList, string kata);

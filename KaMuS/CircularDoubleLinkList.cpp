@@ -131,6 +131,7 @@ void show(ListChild L){
     if(first(L) != NULL){
         adrChild P = first(L);
         do{
+            cout<<"==========English Only========"<<endl;
             cout << i++ << "."<<endl;
             cout << "Kata : "<<info(P).kata<<endl;
             cout << "tanggal : ";

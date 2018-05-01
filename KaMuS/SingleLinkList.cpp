@@ -150,11 +150,12 @@ void show(ListParent L){
         adrParent P;
         P = first(L);
         while ( P  != NULL){
+            cout<<"=====Indonesian Only==="<<endl;
             cout << i++ << "."<<endl;
             cout << "Kata : "<<info(P).kata<<endl;
-            cout << "tanggal : ";
+            cout << "Tanggal : ";
             ShowFromTimestamp(info(P).tanggal);
-            cout << "counter : "<<info(P).counter<<endl;
+            cout << "Counter : "<<info(P).counter<<endl;
             cout << endl;
             P = next(P);
         }
@@ -163,4 +164,14 @@ void show(ListParent L){
 
 void dealokasi(adrParent P){
     delete P;
+}
+void banyakParent(ListParent &parentList, adrParent P){
+    int i;
+    i = 1;
+    P = first(parentList);
+    while (P != NULL){
+        P = next(P);
+        i = i + 1;
+    }
+    cout<<"Banyaknya List Parent adalah "<<i<<endl;
 }
