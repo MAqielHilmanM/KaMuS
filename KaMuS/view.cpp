@@ -12,8 +12,9 @@ void mainView(ListParent &pl, ListRelation &rl, ListChild &cl){
     cout<<"1. Inggris to Indonesia"<<endl;
     cout<<"2. Indonesia to Inggris"<<endl;
     cout<<"3. Database"<<endl;
-    cout<<"4. Keluar "<<endl;
-    cout<<"5. Jumlah Isi Parent"<<endl;
+    cout<<"4. Quiz "<<endl;
+    cout<<"4. Jumlah Isi Parent "<<endl;
+    cout<<"5. Keluar"<<endl;
     int pilih;
     cout<<"Masukan Pilihan : ",cin>>pilih;
     if (pilih == 1){
@@ -25,7 +26,7 @@ void mainView(ListParent &pl, ListRelation &rl, ListChild &cl){
     }else if(pilih == 3){
         system("cls");
         subMenu(pl,rl,cl);
-    }else if (pilih == 5){
+    }else if (pilih == 4){
         system("cls");
         adrParent P;
         banyakParent(pl,P);
@@ -186,4 +187,5 @@ void addNew(ListRelation &rl,ListParent &pl,adrChild child){
         insertLast(rl,alokasi(P,child));
         cout << "Arti berhasil di tambahkan";
 }
+
 
