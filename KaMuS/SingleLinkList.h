@@ -38,7 +38,15 @@ void deleteAfter(ListParent &L, adrParent prec, adrParent &P);
 adrParent cariKata(ListParent L, string kata);
 adrParent cariTanggal(ListParent L, long tanggal);
 void update(adrParent elemen_diubah, string kata);
+void update(adrParent elemen_diubah, int counter);
+void update(adrParent elemen_diubah, long tgl);
 void show(ListParent L);
 void dealokasi(adrParent P);
+void BanyakData(ListParent parentList);
+
+
+int TotalData(ListParent L);
+void ShowTopKeyword(ListParent L);
+ListParent ShortingAscending(ListParent L);
 
 #endif // SINGLELINKLIST_H_INCLUDED

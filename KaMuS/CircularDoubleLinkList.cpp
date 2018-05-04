@@ -21,6 +21,7 @@ void dealokasi(adrChild P){
 void insertFirst(ListChild &L, adrChild P){
     if (first(L) == NULL){
         first(L) = P;
+        next(P) = first(L);
     }else{
         next(P) = first(L);
         next(prev(first(L))) = P;
@@ -29,7 +30,7 @@ void insertFirst(ListChild &L, adrChild P){
     }
 }
 
-void insertAfter(ListChild &L, adrChild prec, adrChild &P){
+void insertAfter(ListChild &L, adrChild prec, adrChild P){
     if (first(L) == NULL){
         first(L) = P;
     }else{
@@ -55,20 +56,25 @@ void insertLast(ListChild &L, adrChild P){
 void deleteFirst(ListChild &L, adrChild &P){
     if(first(L) == NULL){
         cout << "DATA KOSONG";
-    }else {
+    }else if(next(first(L)) != first(L)){
         P = first(L);
         first(L) = next(P);
         prev(next(P)) = prev(P);
         next(prev(P)) = next(P);
         next(P) = NULL;
         prev(P) = NULL;
+    }else{
+        P = first(L);
+        first(L) = NULL;
+        prev(P) = NULL;
+        next(P) = NULL;
     }
 }
 
 void deleteAfter(ListChild &L, adrChild prec, adrChild &P){
     if(first(L) == NULL){
         cout << "DATA KOSONG";
-    }else{
+    }else if(next(prec) != prec){
         next(prec) = P;
 
         next(prec) = next(P);
@@ -76,6 +82,8 @@ void deleteAfter(ListChild &L, adrChild prec, adrChild &P){
 
         prev(P) = NULL;
         next(P) = NULL;
+    }else{
+        deleteFirst(L,P);
     }
 }
 
@@ -103,8 +111,10 @@ adrChild cariKata(ListChild L, string kata){
         if(info(child).kata == kata){
              return child;
         }else{
-             cout << "Data Not Found";
+            return NULL;
         }
+    }else{
+        return NULL;
     }
 }
 
@@ -125,13 +135,94 @@ void update(adrChild &elemen_diubah, long tanggal){
 }
 
 void show(ListChild L){
+    int i = 1;
     if(first(L) != NULL){
         adrChild P = first(L);
         do{
+            cout << i++ << "."<<endl;
             cout << "Kata : "<<info(P).kata<<endl;
-            cout << "tanggal : "<<info(P).tanggal<<endl;
-            cout << "counter : "<<info(P).counter<<endl;
+            cout << "tanggal : ";
+            ShowFromTimestamp(info(P).tanggal);
+            cout << "total akses : "<<info(P).counter<<endl;
+            cout << endl;
             P = next(P);
         }while(P != first(L));
+    }
+}
+void BanyakData(ListChild L){
+    int i = 0;
+    if(first(L) != NULL){
+        adrChild P = first(L);
+        do{
+            i++;
+            P = next(P);
+        }while(P != first(L));
+        cout << "Banyak Terjemahan yang tersedia : " <<i<<endl;
+    }
+}
+
+int TotalData(ListChild L){
+    int i = 0;
+    if(first(L) != NULL){
+        adrChild P = first(L);
+        do{
+            i++;
+            P = next(P);
+        }while (P != first(L));
+    }
+    return i;
+}
+
+void ShowTopKeyword(ListChild L){
+    if(first(L) != NULL){
+        cout << "Top Keyword : ";
+        ListChild NewL = ShortingAscending(L);
+        adrChild P = first(NewL);
+        if(TotalData(NewL) > 3){
+            for(int i = 0; i < 3; i++){
+                cout << info(P).kata << ", ";
+                P = next(P);
+            }
+        }else{
+            do{
+                cout << info(P).kata << ", ";
+                P = next(P);
+            }while(P != first(L));
+        }
+
+    }
+}
+
+ListChild ShortingAscending(ListChild L){
+    if(first(L) != NULL){
+        ListChild NewL;
+        adrChild P,Q,Tmp;
+        createList(NewL);
+        do{
+            deleteFirst(L,Tmp);
+            if(first(NewL) == NULL){
+                insertFirst(NewL,Tmp);
+            }else{
+                if(info(first(NewL)).counter > info(Tmp).counter){
+                    insertFirst(NewL,Tmp);
+                }else if(info(first(NewL)).counter < info(Tmp).counter){
+                    insertLast(NewL,Tmp);
+                }else{
+                    Q =first(NewL);
+                    do{
+                        if(info(Q).counter > info(Tmp).counter){
+                            insertAfter(NewL,prev(Q),Tmp);
+                            Q = NULL;
+                        }else{
+                            Q = next(Q);
+                        }
+                    }while(Q != NULL || Q != first(NewL));
+                }
+            }
+        }while(first(L) != NULL);
+        if(first(NewL) != NULL) return NewL;
+        else return L;
+    }else{
+        return L;
     }
 }

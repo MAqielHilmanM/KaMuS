@@ -55,6 +55,11 @@ void update(adrChild &elemen_diubah, int counter);
 void update(adrChild &elemen_diubah, long tanggal);
 void show(ListChild L);
 
+void BanyakData(ListChild L);
+
+int TotalData(ListChild L);
+void ShowTopKeyword(ListChild L);
+ListChild ShortingAscending(ListChild L);
 
 
 #endif // CIRCULARDOUBLELINKLIST_H_INCLUDED
