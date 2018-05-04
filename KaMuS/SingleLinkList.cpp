@@ -104,7 +104,7 @@ adrParent cariKata(ListParent L, string kata){
     if (first(L) != NULL){
         adrParent P;
         P = first(L);
-        while ((P != NULL) && (info(P).kata != kata)){
+        while ((next(P) != NULL) && (info(P).kata != kata)){
             P = next(P);
         }
         if (info(P).kata == kata){
