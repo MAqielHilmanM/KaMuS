@@ -10,11 +10,11 @@ void mainView(ListParent &pl, ListRelation &rl, ListChild &cl){
     cout<<"================================="<<endl;
     cout<<"Silahkan Pilih Menu Utama"<<endl;
     cout<<"1. Inggris to Indonesia"<<endl;
-    cout<<"2. Indonesia to Inggris"<<endl;
+    cout<<"2. Indonesia ke Inggris"<<endl;
     cout<<"3. Database"<<endl;
     cout<<"4. Quiz "<<endl;
-    cout<<"4. Jumlah Isi Parent "<<endl;
-    cout<<"5. Keluar"<<endl;
+    cout<<"5. Jumlah Isi Parent "<<endl;
+    cout<<"6. Keluar"<<endl;
     int pilih;
     cout<<"Masukan Pilihan : ",cin>>pilih;
     if (pilih == 1){
@@ -51,11 +51,33 @@ void subMenu(ListParent &pl, ListRelation &rl, ListChild &cl){
     if (pilih == 1){
         cout << "KOSAKATA INGGRIS : "<<endl;
         system("cls");
-        show(cl);
+        int bil;
+        cout<<"===Menu==="<<endl;
+        cout<<"1. Hapus kata"<<endl;
+        cout<<"2. Kembali ke menu utama"<<endl;
+        cout<<"Pilih menu diatas : ",cin>>bil;
+        if (bil== 1){
+            string kata;
+            cout<<"Masukan kata yang ingin dihapus : ",cin>>kata;
+        }else{
+            system("cls");
+            mainView(pl,rl,cl);
+        }
     }else if (pilih == 2){
         cout << "KOSAKATA INDONESIA : "<<endl;
         system("cls");
-        show(pl);
+        int bil;
+        cout<<"===Menu==="<<endl;
+        cout<<"1. Hapus kata"<<endl;
+        cout<<"2. Kembali ke menu utama"<<endl;
+        cout<<"Pilih menu diatas : ",cin>>bil;
+        if (bil== 1){
+            string kata;
+            cout<<"Masukan kata yang ingin dihapus : ",cin>>kata;
+        }else{
+            system("cls");
+            mainView(pl,rl,cl);
+        }
     }else if(pilih == 3){
         system("cls");
         cout << "=====List All===== " << endl;
@@ -73,6 +95,7 @@ void InputView(ListParent &pl, ListRelation &rl, ListChild &cl,int menu){
         IngToInd(pl,rl,cl,kata);
         break;
     case 2 :
+        system("cls");
         IndoToIng(pl,rl,cl,kata);
         break;
     }
@@ -87,14 +110,34 @@ void IngToInd(ListParent &pl,ListRelation &rl,ListChild &cl,string kata){
         if(translate != NULL){
            adrParent kataIndo = parent(translate);
            cout << "Translate Found ! ! !"<< endl;
+           cout<<endl;
            cout << kata << " = " << info(kataIndo).kata << endl;
            update(translate,info(translate)++);
+           cout<<endl;
+           int pil;
+           cout<<"Tekan 0 untuk ke menu utama : ",cin>>pil;
+            if (pil==0){
+                system("cls");
+                mainView(pl,rl,cl);
+            }
+
         }else{
             cout << "Translate Not Found ! ! !"<<endl;
             cout << "Insert new translate for this words [Y/N] ??";
+            string input;
             cin >> input;
-            if(input == "Y" ){
+            if((input == "Y" ) || (input== "y")){
                 addNew(rl,pl,engWords);
+                int pil;
+                cout<<endl;
+                cout<<"Tekan 0 untuk ke menu utama : ",cin>>pil;
+                    if (pil==0){
+                        system("cls");
+                        mainView(pl,rl,cl);
+                    }else if (pil != 0){
+                        system("cls");
+                        mainView(pl,rl,cl);
+                    }
             }else if (input == "N"){
                 mainView(pl,rl,cl);
             }
@@ -104,9 +147,19 @@ void IngToInd(ListParent &pl,ListRelation &rl,ListChild &cl,string kata){
         cout << "Words Not Found ! ! !"<<endl;
         cout << "Insert new translate for this words [Y/N] ? ";
         cin >> input;
-        if(input == "Y" ) {
-            addNew(pl,rl,cl,kata,1);
-        }else if (input == "N"){
+        if((input == "Y" ) || (input=="y")) {
+            addNew(pl,rl,cl,kata,2);
+             int pil;
+                cout<<endl;
+                cout<<"Tekan 0 untuk ke menu utama : ",cin>>pil;
+                    if (pil==0){
+                        system("cls");
+                        mainView(pl,rl,cl);
+                    }else if (pil != 0){
+                        system("cls");
+                        mainView(pl,rl,cl);
+                    }
+        }else if ((input== "N") || (input == "n")){
             system("cls");
             mainView(pl,rl,cl);
         }
@@ -124,20 +177,48 @@ void IndoToIng(ListParent &parentList, ListRelation &relationList, ListChild &ch
            cout<<endl;
            cout << kata << " = " << info(kataEnglish).kata << endl;
            update(artikan,info(artikan)++);
+           int pil;
+           cout<<"Tekan 0 untuk ke menu utama : ",cin>>pil;
+            if (pil==0){
+                system("cls");
+                mainView(parentList,relationList,childList);
+            }
         }else{
             cout << "Terjemahan Tidak Ditemukan"<<endl;
             cout << "Apakah ingin menambahkan kata terjemahan baru ? [Y/N]";
             cin >> input;
             if(input == "Y" ){
                 addNew(relationList,childList,Ind);
+                int pil;
+                cout<<"Tekan 0 untuk ke menu utama : ",cin>>pil;
+                    if (pil==0){
+                        system("cls");
+                        mainView(parentList,relationList,childList);
+                    }else if (pil != 0){
+                        system("cls");
+                        mainView(parentList,relationList,childList);
+                    }
             }
         }
     }else{
         cout << "KATA TIDAK DITEMUKAN"<<endl;
         cout << "Apakah ingin menambahkan terjemahan baru ?? [Y/N] ";
         cin >> input;
-        if(input == "Y" ) {
+        if((input == "Y" ) || (input=="y")) {
             addNew(parentList,relationList,childList,kata,2);
+             int pil;
+                cout<<endl;
+                cout<<"Tekan 0 untuk ke menu utama : ",cin>>pil;
+                    if (pil==0){
+                        system("cls");
+                        mainView(parentList,relationList,childList);
+                    }else if (pil != 0){
+                        system("cls");
+                        mainView(parentList,relationList,childList);
+                    }
+        }else if ((input== "N") || (input == "n")){
+            system("cls");
+            mainView(parentList,relationList,childList);
         }
     }
 }
