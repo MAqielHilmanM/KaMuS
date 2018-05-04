@@ -57,6 +57,9 @@ void show(ListChild L);
 
 void BanyakData(ListChild L);
 
+int TotalData(ListChild L);
+void ShowTopKeyword(ListChild L);
+ListChild ShortingAscending(ListChild L);
 
 
 #endif // CIRCULARDOUBLELINKLIST_H_INCLUDED

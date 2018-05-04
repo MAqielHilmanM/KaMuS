@@ -42,6 +42,7 @@ void deleteAfter(ListRelation &L, adrRelation prec, adrRelation &P);
 adrRelation cariParent(ListRelation L, adrChild child);
 adrRelation cariChild(ListRelation L, adrParent parent);
 
+adrRelation cariRelation(ListRelation L, adrParent parent, adrChild child);
 
 void update(adrRelation elemen_diubah, adrParent parent);
 void update(adrRelation elemen_diubah, adrChild child);
@@ -54,7 +55,17 @@ void BanyakData(ListRelation L);
 int totalAkses(ListRelation L, adrChild P);
 int totalAkses(ListRelation L, adrParent P);
 
-void ShowTop(ListRelation L);
+void ShowTop(ListRelation L,int type);
 ListRelation ShortingAscending(ListRelation L);
 
+
+int totalMultipleFromChild(ListRelation L, adrChild child);
+int totalMultipleFromParent(ListRelation L, adrParent parent);
+
+void ShowMultipleFromParent(ListRelation L, adrParent parent);
+void ShowMultipleFromChild(ListRelation L, adrChild child);
+
+
+int TotalData(ListRelation L);
+void ShowTop(ListRelation L, int type);
 #endif // DOUBLELINKLIST_H_INCLUDED

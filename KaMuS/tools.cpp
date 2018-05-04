@@ -6,7 +6,7 @@ int CurrentTimestamp(){
 }
 void ShowFromTimestamp(long timestamp){
     time_t time = timestamp;
-    cout<<ctime(&time)<<endl;
+    cout<<ctime(&time);
 }
 void ShowCurrentTime(){
    time_t now = time(0);
@@ -23,4 +23,24 @@ void ShowCurrentTime(){
 
 void clrscr(){
     cout << "\033[2J\033[1;1H";
+}
+
+void clear_screen()
+{
+#ifdef WINDOWS
+    std::system("cls");
+#else
+    // Assume POSIX
+    std::system ("clear");
+#endif
+}
+
+void PressToContinue()
+{
+#ifdef WINDOWS
+    system("pause");
+#else
+    // Assume POSIX
+    system("read");
+#endif
 }

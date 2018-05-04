@@ -30,8 +30,8 @@ void insertLast(ListParent &L, adrParent P){
         adrParent Q = first(L);
         while (next(Q) != NULL){
             Q = next(Q);
-        next(Q) = P;
         }
+        next(Q) = P;
     }
 }
 void insertAfter(ListParent &L, adrParent prec, adrParent P){
@@ -75,7 +75,7 @@ void deleteLast(ListParent &L, adrParent P){
         }
     }
 }
-void deleteFirst(ListParent &L, adrParent P){
+void deleteFirst(ListParent &L, adrParent &P){
     if (first(L) == NULL){
         cout<<"MOHON MAAF DATA KOSONG";
     }else if ( next(first(L)) == NULL ){
@@ -90,11 +90,12 @@ void deleteFirst(ListParent &L, adrParent P){
 
 void deleteAfter(ListParent &L, adrParent prec, adrParent &P){
     if (first(L) != NULL && prec != NULL){
-        adrParent Q;
-        Q = next(first(L));
-        next(first(L)) = next(P);
+        P = next(prec);
+        if(next(P) != NULL)
+            next(prec) = next(P);
         next(P) = NULL;
-
+    }else if(first(L) != NULL && prec == NULL){
+        deleteFirst(L,P);
     }else{
         cout<<"DATA TIDAK DITEMUKAN ";
     }
@@ -167,11 +168,81 @@ void dealokasi(adrParent P){
 }
 void BanyakData(ListParent parentList){
     int i;
-    i = 1;
+    i = 0;
     adrParent P = first(parentList);
     while (P != NULL){
         P = next(P);
         i = i + 1;
     }
     cout<<"Banyaknya Kata yang tersedia : "<<i<<endl;
+}
+
+int TotalData(ListParent L){
+    int i = 0;
+    if(first(L) != NULL){
+        adrParent P = first(L);
+        i++;
+        while (P != NULL){
+            P = next(P);
+            i = i + 1;
+        }
+    }
+    return i;
+}
+
+void ShowTopKeyword(ListParent L){
+    if(first(L) != NULL){
+        cout << "Top Keyword : ";
+        ListParent NewL;
+        createList(NewL);
+        NewL = ShortingAscending(L);
+        adrParent P = first(NewL);
+        if(TotalData(NewL) > 3){
+            for(int i = 0; i < 3; i++){
+                cout << info(P).kata << ", ";
+                P = next(P);
+            }
+        }else{
+            do{
+                cout << info(P).kata << ", ";
+                P = next(P);
+            }while(next(P) != NULL);
+        }
+
+    }
+}
+
+ListParent ShortingAscending(ListParent L){
+    if(first(L) != NULL){
+        ListParent NewL;
+        adrParent P,Q,Tmp;
+        createList(NewL);
+        do{
+            P = first(L);
+            deleteFirst(L,Tmp);
+            if(first(NewL) == NULL){
+                insertFirst(NewL,Tmp);
+            }else{
+                if(info(first(NewL)).counter > info(P).counter){
+                    insertFirst(NewL,Tmp);
+                }else if(info(first(NewL)).counter < info(P).counter){
+                    insertLast(NewL,Tmp);
+                }else{
+                    Q =first(NewL);
+                    do{
+                        if(info(Q).counter > info(P).counter){
+                            insertAfter(NewL,prev(Q),P);
+                            Q = NULL;
+                        }else{
+                            Q = next(Q);
+                        }
+                    }while(Q != NULL);
+                }
+            }
+        }while(P != NULL);
+        if(first(NewL) != NULL) return NewL;
+        else return L;
+    }else{
+        return L;
+    }
 }

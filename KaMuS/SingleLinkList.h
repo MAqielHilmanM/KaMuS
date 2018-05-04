@@ -45,5 +45,8 @@ void dealokasi(adrParent P);
 void BanyakData(ListParent parentList);
 
 
+int TotalData(ListParent L);
+void ShowTopKeyword(ListParent L);
+ListParent ShortingAscending(ListParent L);
 
 #endif // SINGLELINKLIST_H_INCLUDED

@@ -65,7 +65,7 @@ void deleteLast(ListRelation &L, adrRelation &P){
 
 void deleteFirst(ListRelation &L, adrRelation &P){
   if (first(L) != NULL){
-    P = first(L) ;
+    P = first(L);
     if (first(L) != last(L)){
         first(L) = next(P);
         prev(first(L)) = NULL;
@@ -89,8 +89,11 @@ void deleteAfter(ListRelation &L, adrRelation prec, adrRelation &P){
         }else{
             deleteFirst(L,P);
         }
+    }else if((first(L) != NULL) && (prec ==  NULL)){
+            deleteFirst(L,P);
     }else{
         cout<<"DATA TIDAK DITEMUKAN";
+        P = NULL;
     }
 }
 
@@ -106,7 +109,7 @@ adrRelation cariParent(ListRelation L, adrChild child){
             return NULL;
         }
     }else{
-        cout <<"DATA TIDAK ADA";
+        return NULL;
     }
 }
 
@@ -123,28 +126,91 @@ adrRelation cariChild(ListRelation L, adrParent parent){
             return NULL;
         }
     }else{
-        cout <<"DATA TIDAK ADA";
+        return NULL;
     }
 }
 
-adrRelation cariMultipleRelation(ListRelation L, adrParent parent, adrChild child){
-    int i = 0;
-    adrRelation relation;
+int totalMultipleFromChild(ListRelation L, adrChild child){
+    int n= 0;
     if (first(L) != NULL){
         adrRelation P = first(L);
         while(next(P) != NULL){
-            if((parent(P) == parent) && (child(P) == child)){
-                relation = P;
-                i++;
+            if (child(P) == child){
+                n++;
             }
             P = next(P);
         }
+        return n;
+    }else{
+        return n;
+    }
+}
 
-        if (i != 0){
-            return relation;
-        }else{
-            return NULL;
+
+int totalMultipleFromParent(ListRelation L, adrParent parent){
+    int n= 0;
+    if (first(L) != NULL){
+        adrRelation P = first(L);
+        while(next(P) != NULL){
+            if (parent(P) == parent){
+                n++;
+            }
+            P = next(P);
         }
+            return n;
+    }else{
+        return n;
+    }
+}
+
+
+void ShowMultipleFromParent(ListRelation L, adrParent parent){
+    if(first(L) != NULL){
+        adrRelation P = first(L);
+        cout << "Indonesia : " << info(parent).kata << endl;
+        cout << "English : ";
+        while(next(P) != NULL){
+            if (parent(P) == parent){
+                info(P)++;
+                cout << info(child(P)).kata << ", ";
+            }
+            P = next(P);
+        }
+        cout <<endl;
+    }
+
+}
+
+
+void ShowMultipleFromChild(ListRelation L, adrChild child){
+    if(first(L) != NULL){
+        adrRelation P = first(L);
+        cout << "English : " << info(child).kata << endl;
+        cout << "Indonesia : ";
+        while(next(P) != NULL){
+            if (child(P) == child){
+                info(P)++;
+                cout << info(parent(P)).kata << ", ";
+            }
+            P = next(P);
+        }
+        cout <<endl;
+    }
+
+}
+adrRelation cariRelation(ListRelation L, adrParent parent, adrChild child){
+    adrRelation relation;
+    if (first(L) != NULL){
+        adrRelation P = first(L);
+        while((next(P) != NULL) && (parent(P) != parent) && (child(P) != child)){
+            P = next(P);
+        }
+        if((parent(P) == parent) && (child(P) == child)){
+            relation = P;
+        }else{
+            relation = NULL;
+        }
+        return relation;
     }else{
         cout <<"DATA TIDAK ADA";
         return NULL;
@@ -169,9 +235,9 @@ void show(ListRelation L){
         cout << i++ << ". " << info(parent(last(L))).kata << " = "<< info(child(last(L))).kata << endl;
         cout << "    " << "Total Pencarian : " << info(last(L)) << endl;
         while(next(last(L)) != NULL){
+            last(L) = next(last(L));
             cout << i++ << ". " << info(parent(last(L))).kata << " = "<< info(child(last(L))).kata << endl;
             cout << "    " << "Total Pencarian : " << info(last(L)) << endl;
-            last(L) = next(last(L));
         }
     }
 }
@@ -185,6 +251,19 @@ void BanyakData(ListRelation L){
         }
         cout << "Banyak Terjemahan yang tersedia : " <<i<<endl;
     }
+}
+
+int TotalData(ListRelation L){
+    int i = 0;
+    if (first(L) != NULL){
+        last(L) = first(L);
+        i++;
+        while(next(last(L)) != NULL){
+            i++;
+            last(L) = next(last(L));
+        }
+    }
+    return i;
 }
 
 
@@ -219,12 +298,28 @@ int totalAkses(ListRelation L, adrParent P){
     }
 }
 
-void ShowTop(ListRelation L){
+// type : 1.IND   2.ENG
+void ShowTop(ListRelation L, int type){
     if(first(L) != NULL){
-        cout << "Top Search : " << endl;
+        cout << "Top Search : ";
         ListRelation NewL;
-        NewL = ShortingAscending(NewL);
-        show(NewL);
+        createList(NewL);
+        NewL = ShortingAscending(L);
+        adrRelation P = first(NewL);
+        if(TotalData(NewL) > 3){
+            for(int i = 0; i < 3; i++){
+                if(type == 1) cout << info(parent(P)).kata << ", ";
+                else if(type == 2) cout << info(child(P)).kata << ", ";
+                P = next(P);
+            }
+        }else{
+            while(next(P) != NULL){
+                if(type == 1) cout << info(parent(P)).kata << ", ";
+                else if(type == 2) cout << info(child(P)).kata << ", ";
+                P = next(P);
+            }
+        }
+
     }
 }
 
@@ -256,7 +351,7 @@ ListRelation ShortingAscending(ListRelation L){
                     }
 
                 }
-            }while(P != NULL);
+            }while(first(L)!= NULL);
 
             if(first(NewL) != NULL) return NewL;
             else return L;
@@ -264,6 +359,3 @@ ListRelation ShortingAscending(ListRelation L){
         return L;
     }
 }
-
-
-

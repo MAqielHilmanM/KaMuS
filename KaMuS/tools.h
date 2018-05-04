@@ -19,4 +19,6 @@ int CurrentTimestamp();
 void ShowCurrentTime();
 void ShowFromTimestamp(long timestamp);
 void clrscr();
+void clear_screen();
+void PressToContinue();
 #endif // TOOLS_H_INCLUDED

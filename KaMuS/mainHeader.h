@@ -6,6 +6,7 @@
 #include <chrono>
 #include <ctime>
 #include <time.h>
+#include <cstdlib>
 #include <string>
 
 using namespace std;

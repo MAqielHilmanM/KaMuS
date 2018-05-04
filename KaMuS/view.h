@@ -15,4 +15,5 @@ void IndoToIng(ListParent &parentList, ListRelation &relationList, ListChild &ch
 void addNew(ListParent &pl,ListRelation &rl,ListChild &cl,string kata,int type);
 void addNew(ListRelation &rl,ListChild &cl,adrParent parent);
 void addNew(ListRelation &rl,ListParent &pl,adrChild child);
+void backToHome(ListParent &pl, ListRelation &rl, ListChild &cl);
 #endif // VIEW_H_INCLUDED
