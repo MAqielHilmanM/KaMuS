@@ -130,15 +130,26 @@ void show(ListChild L){
     int i = 1;
     if(first(L) != NULL){
         adrChild P = first(L);
+        cout<<"==========English Only========"<<endl;
         do{
-            cout<<"==========English Only========"<<endl;
             cout << i++ << "."<<endl;
             cout << "Kata : "<<info(P).kata<<endl;
             cout << "tanggal : ";
             ShowFromTimestamp(info(P).tanggal);
-            cout << "counter : "<<info(P).counter<<endl;
+            cout << "total akses : "<<info(P).counter<<endl;
             cout << endl;
             P = next(P);
         }while(P != first(L));
+    }
+}
+void BanyakData(ListChild L){
+    int i = 1;
+    if(first(L) != NULL){
+        adrChild P = first(L);
+        do{
+            i++;
+            P = next(P);
+        }while(P != first(L));
+        cout << "Banyak Terjemahan yang tersedia : " <<i<<endl;
     }
 }

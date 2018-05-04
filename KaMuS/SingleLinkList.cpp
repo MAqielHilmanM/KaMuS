@@ -165,13 +165,13 @@ void show(ListParent L){
 void dealokasi(adrParent P){
     delete P;
 }
-void banyakParent(ListParent &parentList, adrParent P){
+void BanyakData(ListParent parentList){
     int i;
     i = 1;
-    P = first(parentList);
+    adrParent P = first(parentList);
     while (P != NULL){
         P = next(P);
         i = i + 1;
     }
-    cout<<"Banyaknya List Parent adalah "<<i<<endl;
+    cout<<"Banyaknya Kata yang tersedia : "<<i<<endl;
 }

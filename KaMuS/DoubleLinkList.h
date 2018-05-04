@@ -49,6 +49,12 @@ void update(adrRelation elemen_diubah, int counter);
 void show(ListRelation L);
 void dealokasi(adrRelation P);
 
+void BanyakData(ListRelation L);
 
+int totalAkses(ListRelation L, adrChild P);
+int totalAkses(ListRelation L, adrParent P);
+
+void ShowTop(ListRelation L);
+ListRelation ShortingAscending(ListRelation L);
 
 #endif // DOUBLELINKLIST_H_INCLUDED

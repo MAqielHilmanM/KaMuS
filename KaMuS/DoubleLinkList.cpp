@@ -77,6 +77,7 @@ void deleteFirst(ListRelation &L, adrRelation &P){
     cout<<"DATA TIDAK DITEMUKAN ";
  }
 }
+
 void deleteAfter(ListRelation &L, adrRelation prec, adrRelation &P){
     if ((first(L) != NULL) && (prec !=  NULL)){
         if (prec != last(L)){
@@ -125,6 +126,31 @@ adrRelation cariChild(ListRelation L, adrParent parent){
         cout <<"DATA TIDAK ADA";
     }
 }
+
+adrRelation cariMultipleRelation(ListRelation L, adrParent parent, adrChild child){
+    int i = 0;
+    adrRelation relation;
+    if (first(L) != NULL){
+        adrRelation P = first(L);
+        while(next(P) != NULL){
+            if((parent(P) == parent) && (child(P) == child)){
+                relation = P;
+                i++;
+            }
+            P = next(P);
+        }
+
+        if (i != 0){
+            return relation;
+        }else{
+            return NULL;
+        }
+    }else{
+        cout <<"DATA TIDAK ADA";
+        return NULL;
+    }
+}
+
 void update(adrRelation elemen_diubah, adrParent parent){
     parent(elemen_diubah) = parent;
 }
@@ -141,10 +167,23 @@ void show(ListRelation L){
     if (first(L) != NULL){
         last(L) = first(L);
         cout << i++ << ". " << info(parent(last(L))).kata << " = "<< info(child(last(L))).kata << endl;
+        cout << "    " << "Total Pencarian : " << info(last(L)) << endl;
         while(next(last(L)) != NULL){
             cout << i++ << ". " << info(parent(last(L))).kata << " = "<< info(child(last(L))).kata << endl;
+            cout << "    " << "Total Pencarian : " << info(last(L)) << endl;
             last(L) = next(last(L));
         }
+    }
+}
+void BanyakData(ListRelation L){
+    int i = 1;
+    if (first(L) != NULL){
+        last(L) = first(L);
+        while(next(last(L)) != NULL){
+            i++;
+            last(L) = next(last(L));
+        }
+        cout << "Banyak Terjemahan yang tersedia : " <<i<<endl;
     }
 }
 
@@ -154,7 +193,77 @@ void dealokasi(adrRelation P){
 }
 
 
+int totalAkses(ListRelation L, adrChild P){
+    if(first(L) != NULL){
+        adrRelation X = cariParent(L,P);
+        if(X != NULL){
+            return info(parent(X)).counter;
+        }else{
+            return 0;
+        }
+    }else{
+            return 0;
+    }
+}
 
+int totalAkses(ListRelation L, adrParent P){
+    if(first(L) != NULL){
+        adrRelation X = cariChild(L,P);
+        if(X != NULL){
+            return info(child(X)).counter;
+        }else{
+            return 0;
+        }
+    }else{
+            return 0;
+    }
+}
+
+void ShowTop(ListRelation L){
+    if(first(L) != NULL){
+        cout << "Top Search : " << endl;
+        ListRelation NewL;
+        NewL = ShortingAscending(NewL);
+        show(NewL);
+    }
+}
+
+ListRelation ShortingAscending(ListRelation L){
+    if(first(L) != NULL){
+            ListRelation NewL;
+            adrRelation P,Q,Tmp;
+            createList(NewL);
+            do{
+                P = first(L);
+                deleteFirst(L,Tmp);
+                if(first(NewL) == NULL){
+                    insertFirst(NewL,Tmp);
+                }else{
+                    if(info(first(NewL)) > info(P)){
+                        insertFirst(NewL,Tmp);
+                    }else if(info(first(NewL)) < info(P)){
+                        insertLast(NewL,Tmp);
+                    }else{
+                        Q =first(NewL);
+                        do{
+                            if(info(Q) > info(P)){
+                                insertAfter(NewL,prev(Q),P);
+                                Q = NULL;
+                            }else{
+                                Q = next(Q);
+                            }
+                        }while(Q != NULL);
+                    }
+
+                }
+            }while(P != NULL);
+
+            if(first(NewL) != NULL) return NewL;
+            else return L;
+    }else{
+        return L;
+    }
+}
 
 
 

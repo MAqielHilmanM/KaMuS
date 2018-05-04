@@ -29,7 +29,7 @@ void mainView(ListParent &pl, ListRelation &rl, ListChild &cl){
     }else if (pilih == 4){
         system("cls");
         adrParent P;
-        banyakParent(pl,P);
+        BanyakData(pl);
     }
 }
 

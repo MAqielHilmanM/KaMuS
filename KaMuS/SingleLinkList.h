@@ -42,6 +42,8 @@ void update(adrParent elemen_diubah, int counter);
 void update(adrParent elemen_diubah, long tgl);
 void show(ListParent L);
 void dealokasi(adrParent P);
-void banyakParent(ListParent &parentList, adrParent P);
+void BanyakData(ListParent parentList);
+
+
 
 #endif // SINGLELINKLIST_H_INCLUDED

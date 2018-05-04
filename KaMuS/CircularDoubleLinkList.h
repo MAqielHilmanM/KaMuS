@@ -55,6 +55,8 @@ void update(adrChild &elemen_diubah, int counter);
 void update(adrChild &elemen_diubah, long tanggal);
 void show(ListChild L);
 
+void BanyakData(ListChild L);
+
 
 
 #endif // CIRCULARDOUBLELINKLIST_H_INCLUDED
