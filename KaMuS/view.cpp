@@ -73,6 +73,7 @@ void InputView(ListParent &pl, ListRelation &rl, ListChild &cl,int menu){
         IngToInd(pl,rl,cl,kata);
         break;
     case 2 :
+        system("cls");
         IndoToIng(pl,rl,cl,kata);
         break;
     }
