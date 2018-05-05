@@ -59,7 +59,7 @@ void insertAfter(ListParent &L, adrParent prec, adrParent P){
     }
 }
 
-void deleteLast(ListParent &L, adrParent P){
+void deleteLast(ListParent &L, adrParent &P){
     if (first(L) == NULL){
         cout<<"DATA TIDAK DITEMUKAN";
     }else if (next(first(L)) == NULL){
@@ -213,36 +213,25 @@ void ShowTopKeyword(ListParent L){
 }
 
 ListParent ShortingAscending(ListParent L){
-    if(first(L) != NULL){
-        ListParent NewL;
-        adrParent P,Q,Tmp;
-        createList(NewL);
-        do{
-            P = first(L);
-            deleteFirst(L,Tmp);
-            if(first(NewL) == NULL){
-                insertFirst(NewL,Tmp);
-            }else{
-                if(info(first(NewL)).counter > info(P).counter){
-                    insertFirst(NewL,Tmp);
-                }else if(info(first(NewL)).counter < info(P).counter){
-                    insertLast(NewL,Tmp);
-                }else{
-                    Q =first(NewL);
-                    do{
-                        if(info(Q).counter > info(P).counter){
-                            insertAfter(NewL,prev(Q),P);
-                            Q = NULL;
-                        }else{
-                            Q = next(Q);
-                        }
-                    }while(Q != NULL);
-                }
+    ListParent Lnew,Lold;
+    Lold = L;
+    createList(Lnew);
+    adrParent P,Q;
+    while(first(Lold) != NULL){
+        deleteFirst(Lold,P);
+        if(first(Lnew) == NULL || info(P).counter < info(first(Lnew)).counter){
+            insertFirst(Lnew,P);
+        }else{
+            Q = first(Lnew);
+            while(next(Q) != NULL && info(next(Q)).counter < info(P).counter){
+                Q = next(Q);
             }
-        }while(P != NULL);
-        if(first(NewL) != NULL) return NewL;
-        else return L;
-    }else{
-        return L;
+            if(next(Q) == NULL){
+                insertLast(Lnew,P);
+            }else if(info(Q).counter >= info(P).counter){
+                insertAfter(Lnew,Q,P);
+            }
+        }
     }
+    return Lnew;
 }

@@ -80,14 +80,16 @@ void deleteFirst(ListRelation &L, adrRelation &P){
 
 void deleteAfter(ListRelation &L, adrRelation prec, adrRelation &P){
     if ((first(L) != NULL) && (prec !=  NULL)){
-        if (prec != last(L)){
+        if (prec != prev(last(L))){
             P = next(prec);
-            next(prec) = next(P);
-            prev(next(prec)) = prec;
+            if(next(P) != NULL){
+                next(prec) = next(P);
+                prev(next(prec)) = prec;
+            }
             next(P) = NULL;
             prev(P) = NULL;
         }else{
-            deleteFirst(L,P);
+            deleteLast(L,P);
         }
     }else if((first(L) != NULL) && (prec ==  NULL)){
             deleteFirst(L,P);
@@ -134,12 +136,12 @@ int totalMultipleFromChild(ListRelation L, adrChild child){
     int n= 0;
     if (first(L) != NULL){
         adrRelation P = first(L);
-        while(next(P) != NULL){
+        do{
             if (child(P) == child){
                 n++;
             }
             P = next(P);
-        }
+        }while(P != NULL);
         return n;
     }else{
         return n;
@@ -151,12 +153,12 @@ int totalMultipleFromParent(ListRelation L, adrParent parent){
     int n= 0;
     if (first(L) != NULL){
         adrRelation P = first(L);
-        while(next(P) != NULL){
+        do{
             if (parent(P) == parent){
                 n++;
             }
             P = next(P);
-        }
+        }while(P != NULL);
             return n;
     }else{
         return n;
@@ -169,13 +171,13 @@ void ShowMultipleFromParent(ListRelation L, adrParent parent){
         adrRelation P = first(L);
         cout << "Indonesia : " << info(parent).kata << endl;
         cout << "English : ";
-        while(next(P) != NULL){
+        do{
             if (parent(P) == parent){
                 info(P)++;
                 cout << info(child(P)).kata << ", ";
             }
             P = next(P);
-        }
+        }while(P != NULL);
         cout <<endl;
     }
 
@@ -187,13 +189,13 @@ void ShowMultipleFromChild(ListRelation L, adrChild child){
         adrRelation P = first(L);
         cout << "English : " << info(child).kata << endl;
         cout << "Indonesia : ";
-        while(next(P) != NULL){
+        do{
             if (child(P) == child){
                 info(P)++;
                 cout << info(parent(P)).kata << ", ";
             }
             P = next(P);
-        }
+        }while(P != NULL);
         cout <<endl;
     }
 
@@ -324,38 +326,25 @@ void ShowTop(ListRelation L, int type){
 }
 
 ListRelation ShortingAscending(ListRelation L){
-    if(first(L) != NULL){
-            ListRelation NewL;
-            adrRelation P,Q,Tmp;
-            createList(NewL);
-            do{
-                P = first(L);
-                deleteFirst(L,Tmp);
-                if(first(NewL) == NULL){
-                    insertFirst(NewL,Tmp);
-                }else{
-                    if(info(first(NewL)) > info(P)){
-                        insertFirst(NewL,Tmp);
-                    }else if(info(first(NewL)) < info(P)){
-                        insertLast(NewL,Tmp);
-                    }else{
-                        Q =first(NewL);
-                        do{
-                            if(info(Q) > info(P)){
-                                insertAfter(NewL,prev(Q),P);
-                                Q = NULL;
-                            }else{
-                                Q = next(Q);
-                            }
-                        }while(Q != NULL);
-                    }
-
-                }
-            }while(first(L)!= NULL);
-
-            if(first(NewL) != NULL) return NewL;
-            else return L;
-    }else{
-        return L;
+    ListRelation Lnew,Lold;
+    Lold = L;
+    createList(Lnew);
+    adrRelation P,Q;
+    while(first(Lold) != NULL){
+        deleteFirst(Lold,P);
+        if(first(Lnew) == NULL || info(P) < info(first(Lnew))){
+            insertFirst(Lnew,P);
+        }else{
+            Q = first(Lnew);
+            while(next(Q) != NULL && info(next(Q)) < info(P)){
+                Q = next(Q);
+            }
+            if(next(Q) == NULL){
+                insertLast(Lnew,P);
+            }else if(info(Q) >= info(P)){
+                insertAfter(Lnew,Q,P);
+            }
+        }
     }
+    return Lnew;
 }

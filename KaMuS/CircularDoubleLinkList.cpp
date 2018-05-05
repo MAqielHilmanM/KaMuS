@@ -187,42 +187,32 @@ void ShowTopKeyword(ListChild L){
             do{
                 cout << info(P).kata << ", ";
                 P = next(P);
-            }while(P != first(L));
+            }while(P != first(NewL));
         }
 
     }
 }
 
 ListChild ShortingAscending(ListChild L){
-    if(first(L) != NULL){
-        ListChild NewL;
-        adrChild P,Q,Tmp;
-        createList(NewL);
-        do{
-            deleteFirst(L,Tmp);
-            if(first(NewL) == NULL){
-                insertFirst(NewL,Tmp);
-            }else{
-                if(info(first(NewL)).counter > info(Tmp).counter){
-                    insertFirst(NewL,Tmp);
-                }else if(info(first(NewL)).counter < info(Tmp).counter){
-                    insertLast(NewL,Tmp);
-                }else{
-                    Q =first(NewL);
-                    do{
-                        if(info(Q).counter > info(Tmp).counter){
-                            insertAfter(NewL,prev(Q),Tmp);
-                            Q = NULL;
-                        }else{
-                            Q = next(Q);
-                        }
-                    }while(Q != NULL || Q != first(NewL));
-                }
+    ListChild Lnew,Lold;
+    Lold = L;
+    createList(Lnew);
+    adrChild P,Q;
+    while(first(Lold) != NULL){
+        deleteFirst(Lold,P);
+        if(first(Lnew) == NULL || info(P).counter < info(first(Lnew)).counter){
+            insertFirst(Lnew,P);
+        }else{
+            Q = first(Lnew);
+            while(next(Q) != NULL && info(next(Q)).counter < info(P).counter){
+                Q = next(Q);
             }
-        }while(first(L) != NULL);
-        if(first(NewL) != NULL) return NewL;
-        else return L;
-    }else{
-        return L;
+            if(next(Q) == NULL){
+                insertLast(Lnew,P);
+            }else if(info(Q).counter >= info(P).counter){
+                insertAfter(Lnew,Q,P);
+            }
+        }
     }
+    return Lnew;
 }

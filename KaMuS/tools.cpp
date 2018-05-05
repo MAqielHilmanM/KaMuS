@@ -27,20 +27,24 @@ void clrscr(){
 
 void clear_screen()
 {
-#ifdef WINDOWS
+#ifdef _WIN32
     std::system("cls");
-#else
+#elif  __linux__
     // Assume POSIX
     std::system ("clear");
+#else
+
 #endif
 }
 
 void PressToContinue()
 {
-#ifdef WINDOWS
+#ifdef _WIN32
     system("pause");
-#else
+#elif  __linux__
     // Assume POSIX
     system("read");
+#else
+
 #endif
 }

@@ -107,8 +107,10 @@ void subMenu(ListParent &pl, ListRelation &rl, ListChild &cl){
                     Q = next(Q);
                 }
                 deleteAfter(pl,Q,par);
-            }else{
+            }else if(par == first(pl)){
                 deleteFirst(pl,par);
+            }else{
+                deleteLast(pl,par);
             }
             adrRelation rel;
             rel = cariChild(rl,par);
@@ -156,6 +158,7 @@ void subMenu(ListParent &pl, ListRelation &rl, ListChild &cl){
 
 void InputView(ListParent &pl, ListRelation &rl, ListChild &cl,int menu){
     string kata;
+/*
     if(menu == 1){
         ShowTop(rl,2);
         cout << endl;
@@ -167,6 +170,7 @@ void InputView(ListParent &pl, ListRelation &rl, ListChild &cl,int menu){
         ShowTopKeyword(pl);
         cout << endl;
     }
+*/
     cout<<"Masukan kata : ";
     cin>>kata;
     switch(menu){
@@ -294,6 +298,7 @@ void IndoToIng(ListParent &parentList, ListRelation &relationList, ListChild &ch
 
 // type : 2 => EngtoInd, 1 => IndtoEng
 void addNew(ListParent &pl,ListRelation &rl,ListChild &cl,string kata,int type){
+
     if(type == 1){
         adrParent P = alokasiParent(kata);
         insertLast(pl,P);

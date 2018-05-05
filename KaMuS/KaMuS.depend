@@ -93,53 +93,54 @@
 	"tools.h"
 	"mainHeader.h"
 
-1525045507 source:e:\telkom university\semester 2\std\ta\kamus\kamus\circulardoublelinklist.cpp
+1525479339 source:e:\telkom university\semester 2\std\ta\kamus\kamus\circulardoublelinklist.cpp
 	"CircularDoubleLinkList.h"
 
-1525045484 e:\telkom university\semester 2\std\ta\kamus\kamus\circulardoublelinklist.h
+1525474356 e:\telkom university\semester 2\std\ta\kamus\kamus\circulardoublelinklist.h
 	"tools.h"
 	"mainHeader.h"
 
-1525046869 e:\telkom university\semester 2\std\ta\kamus\kamus\tools.h
+1525474356 e:\telkom university\semester 2\std\ta\kamus\kamus\tools.h
 	"mainHeader.h"
 
-1525047124 e:\telkom university\semester 2\std\ta\kamus\kamus\mainheader.h
+1525474356 e:\telkom university\semester 2\std\ta\kamus\kamus\mainheader.h
 	<iostream>
 	<stdlib.h>
 	<chrono>
 	<ctime>
 	<time.h>
+	<cstdlib>
 	<string>
 
-1525043231 source:e:\telkom university\semester 2\std\ta\kamus\kamus\doublelinklist.cpp
+1525481651 source:e:\telkom university\semester 2\std\ta\kamus\kamus\doublelinklist.cpp
 	"DoubleLinkList.h"
 
-1525045239 e:\telkom university\semester 2\std\ta\kamus\kamus\doublelinklist.h
+1525474356 e:\telkom university\semester 2\std\ta\kamus\kamus\doublelinklist.h
 	"SingleLinkList.h"
 	"mainHeader.h"
 	"CircularDoubleLinkList.h"
 
-1525045520 e:\telkom university\semester 2\std\ta\kamus\kamus\singlelinklist.h
+1525481891 e:\telkom university\semester 2\std\ta\kamus\kamus\singlelinklist.h
 	"tools.h"
 	"mainHeader.h"
 
-1525047475 source:e:\telkom university\semester 2\std\ta\kamus\kamus\main.cpp
+1525474356 source:e:\telkom university\semester 2\std\ta\kamus\kamus\main.cpp
 	"view.h"
 
-1525045513 source:e:\telkom university\semester 2\std\ta\kamus\kamus\singlelinklist.cpp
+1525481878 source:e:\telkom university\semester 2\std\ta\kamus\kamus\singlelinklist.cpp
 	"SingleLinkList.h"
 
-1525046962 source:e:\telkom university\semester 2\std\ta\kamus\kamus\tools.cpp
+1525474995 source:e:\telkom university\semester 2\std\ta\kamus\kamus\tools.cpp
 	"tools.h"
 
-1525047448 e:\telkom university\semester 2\std\ta\kamus\kamus\view.h
+1525474356 e:\telkom university\semester 2\std\ta\kamus\kamus\view.h
 	"mainHeader.h"
 	"tools.h"
 	"CircularDoubleLinkList.h"
 	"SingleLinkList.h"
 	"DoubleLinkList.h"
 
-1525047436 source:e:\telkom university\semester 2\std\ta\kamus\kamus\view.cpp
+1525481814 source:e:\telkom university\semester 2\std\ta\kamus\kamus\view.cpp
 	"view.h"
 
 1525452876 /home/maqielhm/Documents/TelkomUniversity/Semester2/STD/Tubes/KaMuS/KaMuS/view.h
